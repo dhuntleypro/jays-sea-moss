@@ -6,7 +6,7 @@ import { StyleSheet } from "react-native";
 
 import { Ionicons , Fontisto} from '@expo/vector-icons'
 // import { TopSectionHeaderV1 } from '@/components/home/TopSectionHeader';
-import SearchBar from '@/components/other/general/SearchBar';
+// import SearchBar from '@/components/other/general/SearchBar';
 // import Carousel from '@/components/home/Carousel';
 // import SectionHeader from '@/components/home/Headings';
 import ProductRow from '@/components/other/cards/other/ProductRow';
@@ -15,6 +15,8 @@ import { TopSectionHeaderV1 } from '@/components/pages/home/TopSectionHeader';
 import Carousel from '@/components/pages/home/Carousel';
 import SectionHeader from '@/components/pages/home/Headings';
 import { useClientStore } from '@/contexts/ClientStoreContext';
+import SearchBar from '../search/SearchBar';
+import SearchBarVOne from '../search/SearchBarVOne';
 
 
 const HomeDesignOne: FC = () => {
@@ -31,7 +33,7 @@ const HomeDesignOne: FC = () => {
             
           }}>
             <TopSectionHeaderV1 />
-            <SearchBar />
+            <SearchBarVOne />
             <Carousel />
             <SectionHeader /> 
            <ProductRow client={false} />

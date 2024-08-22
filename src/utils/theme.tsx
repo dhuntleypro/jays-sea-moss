@@ -22,7 +22,7 @@ const COLORS = {
 
       },
 
-    primary: "#0504aa",
+    primary: "#3f5a36",
     secondary: "#DDF0FF",
     tertiary: "#FF7754",
 
@@ -30,8 +30,9 @@ const COLORS = {
     tintColorLight: '#0504aa', // Royal blue
     tintColorDark: '#fff',
 
-  darkGray: '#333333',
-  green: '#8BC34A',
+    darkGray: '#333333',
+    green: '#8BC34A',
+    forestGreen: '#3f5a36',
     lightGray: "#F5F5F5",
     gray: "#83829A",
     gray2: "#C1C0C8",
@@ -40,7 +41,7 @@ const COLORS = {
     offwhite: "#F3F4F8",
     white: "#FFFFFF",
     black: "#000000",
-    blue: "#0504aa",
+    blue: "#0504aa", // Royal blue
     red: "#E81E4D",
     orange: "FF5733",
     // green: "#00C135",

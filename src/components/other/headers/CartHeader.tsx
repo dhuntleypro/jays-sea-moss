@@ -35,7 +35,7 @@ import { CartContext } from '../../../contexts/CartContext'
             {/* <Avatar.Image source={{uri: 'https://appsformankind-assets.s3.amazonaws.com/Collections/Furniture/Furniture_1.jpg'}} size={40}/> */}
 
         </View> 
-    </View>
+    </View> 
 </View>
 
   )

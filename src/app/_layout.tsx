@@ -19,6 +19,7 @@ import { OrderProvider } from "@/contexts/OrderContext";
 import { ClientStoreProvider } from "@/contexts/ClientStoreContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
+import { CartProvider } from "@/contexts/CartContext";
 // import { ProductProvider } from '@/contexts/ProductContext';
 
 export {
@@ -49,7 +50,7 @@ export default function RootLayout() {
     if (loaded) {
       SplashScreen.hideAsync();
     }
-  }, [loaded]);
+  }, [loaded])
 
   if (!loaded) {
     return null;
@@ -64,6 +65,7 @@ function RootLayoutNav() {
   return (
    
       <AuthProvider>
+        <CartProvider>
         <ClientStoreProvider>
           <ProductProvider>
             <OrderProvider>
@@ -101,6 +103,7 @@ function RootLayoutNav() {
                       headerShown: false,
                     }}
                   />
+                 
                   {/* <Stack.Screen name="register" options={{ presentation: 'fullScreenModal' }} /> */}
                   {/* <Stack.Screen name="register" options={{ presentation: 'fullScreenModal' }} /> */}
                   {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
@@ -110,6 +113,7 @@ function RootLayoutNav() {
             </OrderProvider>
           </ProductProvider>
         </ClientStoreProvider>
+        </CartProvider>
       </AuthProvider>
   )
 }

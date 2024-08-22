@@ -1,6 +1,6 @@
-import { Platform, StyleSheet, Text, View } from 'react-native'
+import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { Tabs } from 'expo-router'
+import { router, Tabs } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
 import Footer from '@/components/web/Footer'
 import TopHeader from '@/components/web/TopHeader'
@@ -22,6 +22,7 @@ const TabLayout = () => {
       <Tabs.Screen 
       name='client-orders'
       options={{
+        href: null,
         headerShown: false,
         tabBarLabel: 'Orders',
         tabBarIcon : ({size, color }) => <Ionicons name='newspaper' size={size} color={color} />
@@ -30,8 +31,31 @@ const TabLayout = () => {
      <Tabs.Screen 
       name='client-products'
       options={{
+        href: null,
+
         headerShown: false,
         tabBarLabel: 'Products',
+        tabBarIcon : ({size, color }) => <Ionicons name='person' size={size} color={color} />
+      }}
+      />
+        <Tabs.Screen 
+      name='collections'
+      options={{
+        // headerShown: false,
+        tabBarLabel: 'Collections',
+        tabBarIcon : ({size, color }) => <Ionicons name='newspaper' size={size} color={color} />
+      }}
+      />
+     <Tabs.Screen 
+      name='cart'
+      options={{
+        // headerShown: false,
+        headerLeft: () => (
+          <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
+            <Ionicons name="arrow-back" size={24} color="black" />
+          </TouchableOpacity>
+        ),
+        tabBarLabel: 'Cart',
         tabBarIcon : ({size, color }) => <Ionicons name='person' size={size} color={color} />
       }}
       />
@@ -44,6 +68,18 @@ const TabLayout = () => {
         tabBarIcon : ({size, color }) => <Ionicons name='settings-outline' size={size} color={color} />
       }}
     /> 
+
+
+    {/* Hidden */}
+
+    <Tabs.Screen 
+      name='search'
+      options={{
+        href: null,
+        tabBarLabel: 'Collections',
+        tabBarIcon : ({size, color }) => <Ionicons name='newspaper' size={size} color={color} />
+      }}
+      />
     </Tabs>
     
     </>
@@ -52,7 +88,11 @@ const TabLayout = () => {
 
 export default TabLayout
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  backButton: {
+    marginLeft: 8, // Adjust margin to position the back button
+  },
+})
 
 
 

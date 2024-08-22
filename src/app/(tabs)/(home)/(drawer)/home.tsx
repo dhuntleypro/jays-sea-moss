@@ -6,7 +6,7 @@ import { StyleSheet } from "react-native";
 
 import { Ionicons , Fontisto} from '@expo/vector-icons'
 // import { TopSectionHeaderV1 } from '@/components/home/TopSectionHeader';
-import SearchBar from '@/components/other/general/SearchBar';
+// import SearchBar from '@/components/other/general/SearchBar';
 // import Carousel from '@/components/home/Carousel';
 // import SectionHeader from '@/components/home/Headings';
 import ProductRow from '@/components/other/cards/other/ProductRow';

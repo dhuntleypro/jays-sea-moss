@@ -11,7 +11,7 @@ import { COLORS, SIZES } from "@/utils/theme";
 // import { ProductModelProps } from "../../models/ProductModelProps";
 import { useNavigation } from "@react-navigation/native";
 // import useFetchObjects from "../../hook/useFetchObjects";
-import ProductCardView from "../cards/ProductCardView";
+import ProductCardView from "../../library/card/ProductCardView";
 import { useAuth } from "../../../contexts/AuthContext";
 import { ClientStateProps } from "../cards/other/ProductRow";
 import { CONSTANTS } from "@/utils/constants";

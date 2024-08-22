@@ -5,7 +5,7 @@ import { useClientProduct } from '@/contexts/ProductContext';
 import { COLORS, SIZES } from '@/utils/theme';
 import { ProductModelProps } from '@/models/ProductModelProps';
 
-const ProductDetailsPage = () => {
+const ClientProductDetailsPage = () => {
   const { selectedProduct, removeProduct, addProduct } = useClientProduct();
   const router = useRouter();
   const [productDetails, setProductDetails] = useState<ProductModelProps | null>(null);
@@ -137,7 +137,7 @@ const ProductDetailsPage = () => {
   );
 };
 
-export default ProductDetailsPage;
+export default ClientProductDetailsPage;
 
 
 

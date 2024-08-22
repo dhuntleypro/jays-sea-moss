@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions , ScrollVie
 import { useClientStore } from '@/contexts/ClientStoreContext';
 import { View as MotiView } from 'moti';
 import TopHomeSeaction from './TopHomeSeaction';
-import SearchBar from '@/components/other/general/SearchBar';
+// import SearchBar from '@/components/other/general/SearchBar';
 import ProductRow from '@/components/other/cards/other/ProductRow';
 import Carousel from '@/components/pages/home/Carousel';
 import SectionHeader from '@/components/pages/home/Headings';
@@ -19,16 +19,20 @@ const HomeDesignTwo: React.FC = () => {
     showsVerticalScrollIndicator={false} 
     style={{
       backgroundColor: 'white',
-      paddingTop: 30
+      paddingTop: 30,
+      paddingBottom: 200
 
       
     }}>
     <TopHomeSeaction />
-    <SearchBar />
+
+    
+
     <Carousel />
     <SectionHeader /> 
-   <ProductRow client={false} />
-   <View style={{paddingBottom: 200}}></View>
+    <ProductRow client={true} /> 
+       <View style={{paddingTop: 40}}/>
+
    </ScrollView>
   )
 

@@ -1,9 +1,26 @@
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import ClientProductsView from '@/components/pages/client-product/ClientProductsView'
 
-// If mobile and web is different
+const ClientProductsRouteScreen = () => {
+  return (
+    <ClientProductsView />
+  )
+}
 
-// Make sure to also create the folder in components
+export default ClientProductsRouteScreen
 
-export {default} from '@/components/pages/client-product/ClientProductsView' 
+const styles = StyleSheet.create({})
+
+
+
+
+
+// // If mobile and web is different
+
+// // Make sure to also create the folder in components
+
+// export {default} from '@/components/pages/client-product/ClientProductsView' 
 
 
 

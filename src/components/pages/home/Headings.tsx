@@ -3,13 +3,16 @@ import React from 'react'
 import { COLORS, SIZES } from '@/utils/theme'
 import { Ionicons } from "@expo/vector-icons"
 import { Link } from 'expo-router'
+import { useClientStore } from '@/contexts/ClientStoreContext'
 // import EditScreenInfo from '../EditScreenInfo'
 
 const SectionHeader = () => {
+    const { store } = useClientStore()
+
   return (
     <View style={styles.container}>
         <View style={styles.header}>
-            <Text style={styles.headerTitle}>App Types</Text>
+            <Text style={styles.headerTitle}>{store?.store_type ?? ""}</Text>
             {/* <EditScreenInfo path="app/(tabs)/products.tsx" /> */}
 
             <Link href={'/products'} asChild>

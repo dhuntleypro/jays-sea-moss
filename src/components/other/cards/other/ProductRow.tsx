@@ -9,7 +9,7 @@ import {
 import React from "react";
 import { useAuth } from "../../../../contexts/AuthContext";
 import { COLORS, SIZES } from "@/utils/theme";
-import ProductCardView from "../ProductCardView";
+import ProductCardView from "../../../library/card/ProductCardView";
 import { ProductModelProps } from "@/models/ProductModelProps";
 import { useClientProduct } from "@/contexts/ProductContext";
 import { CONSTANTS } from "@/utils/constants";

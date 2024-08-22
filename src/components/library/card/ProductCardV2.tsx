@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 // import { useNavigation } from '@react-navigation/native';
 // import { ProductModelProps } from '../../../models/ProductModelProps';
-import { CartContext } from '../../../../contexts/CartContext';
+import { CartContext } from '../../../contexts/CartContext';
 // import convertToCurrency from '../../../hook/convertToCurrency';
 import { COLORS, SIZES } from '@/utils/theme';
 // import { Constants } from '@stripe/stripe-react-native';

@@ -16,12 +16,14 @@ import { CONSTANTS } from '@/utils/constants'
 import useFetchObjects from '@/hooks/useFetchObjects'
 import { ProductModelProps } from '@/models/ProductModelProps'
 import { useClientProduct } from '@/contexts/ProductContext'
+import { useClientStore } from '@/contexts/ClientStoreContext'
 // import { ProductModelProps } from '@/app/models/ProductModelProps'
 
 
 const NewRivals = () => {
     // const navigation = useNavigation()
     const { authState, onLogout } = useAuth()
+    const { store } = useClientStore()
     const storeID = authState?.user ? authState.user.store_owner_id : '';
     const email = authState?.user ? authState.user.email : '';
     // const { data: products, isLoading, error, refetch } = useFetchObjects(getProducts);
@@ -32,7 +34,7 @@ const NewRivals = () => {
       <SafeAreaView style={styles.container}>
         <BackButton title={'Home'} />
       <View style={{paddingTop: 16}}>
-        <Text style={styles.title}>App Types</Text>
+        <Text style={styles.title}>{store?.store_type ?? ""}</Text>
       </View>
         <FlatList
           keyExtractor={(item: ProductModelProps) => item.id.toString()}
