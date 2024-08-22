@@ -3,7 +3,7 @@
 
 
 export const CONSTANTS = {
-    // appName: "",
+    appName: "",
     holderImage: 'https://appsformankind-assets.s3.amazonaws.com/Collections/Furniture/Furniture_1.jpg', //'../assets/images/adaptive-icon.png',
     store_id:  "P5V8A9ZE",  
     merchant_id: `merchant.com.dhuntleyinc.DevelopingAppsForMankind`,

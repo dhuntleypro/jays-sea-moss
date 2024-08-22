@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import CollectionPageVOne from '@/components/pages/collections/CollectionPageVOne'
 
 const collections = () => {
   return (
-    <View>
-      <Text>collections</Text>
-    </View>
+    <CollectionPageVOne />
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext } from "react";
 import {
   View,
   Text,
@@ -7,27 +7,26 @@ import {
   StyleSheet,
   Dimensions,
   ScrollView,
-} from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { Link } from 'expo-router';
-import { CartContext } from '@/contexts/CartContext';
-import { useClientProduct } from '@/contexts/ProductContext';
-import { ProductModelProps, SAMPLE_PRODUCT } from '@/models/ProductModelProps';
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { Link } from "expo-router";
+import { CartContext } from "@/contexts/CartContext";
+import { useClientProduct } from "@/contexts/ProductContext";
+import { ProductModelProps, SAMPLE_PRODUCT } from "@/models/ProductModelProps";
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
 // const ProductDetailsPageVTwo: React.FC = () => {
 
-  export const ProductDetailsPageVTwo: FC<ProductModelProps> = () => {
-
-  const { addToCart} = useContext(CartContext)
-  const {selectedProduct} = useClientProduct()
+export const ProductDetailsPageVTwo: FC<ProductModelProps> = () => {
+  const { addToCart } = useContext(CartContext);
+  const { selectedProduct } = useClientProduct();
 
   // Static image URLs
   const images = [
-    'https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/rock.jpg',
-    'https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/gel.jpg',
-    'https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/waterfall.jpg'
+    "https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/rock.jpg",
+    "https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/gel.jpg",
+    "https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/waterfall.jpg",
   ];
 
   return (
@@ -41,7 +40,11 @@ const { width } = Dimensions.get('window');
           style={styles.imageCarousel}
         >
           {images.map((image, index) => (
-            <Image key={index} source={{ uri: image }} style={styles.productImage} />
+            <Image
+              key={index}
+              source={{ uri: image }}
+              style={styles.productImage}
+            />
           ))}
         </ScrollView>
 
@@ -49,29 +52,46 @@ const { width } = Dimensions.get('window');
         <View style={styles.productInfo}>
           <Text style={styles.productName}>Sample Sea Moss Product</Text>
           <Text style={styles.productDescription}>
-            This is a sample product description that highlights key features and benefits of Sea Moss products.
+            This is a sample product description that highlights key features
+            and benefits of Sea Moss products.
           </Text>
           <Text style={styles.productPrice}>
-            <Text style={styles.salePrice}>$149.99</Text>{' '}
+            <Text style={styles.salePrice}>$149.99</Text>{" "}
             <Text style={styles.originalPrice}>$199.99</Text>
           </Text>
 
           {/* Features */}
           <View style={styles.featuresContainer}>
             <Text style={styles.sectionTitle}>Features:</Text>
-            <Text style={styles.featureItem}>- Rich in essential minerals and vitamins</Text>
-            <Text style={styles.featureItem}>- Supports overall health and wellness</Text>
-            <Text style={styles.featureItem}>- Can be used in various recipes and remedies</Text>
+            <Text style={styles.featureItem}>
+              - Rich in essential minerals and vitamins
+            </Text>
+            <Text style={styles.featureItem}>
+              - Supports overall health and wellness
+            </Text>
+            <Text style={styles.featureItem}>
+              - Can be used in various recipes and remedies
+            </Text>
           </View>
 
           {/* Sea Moss Benefits */}
           <View style={styles.benefitsContainer}>
             <Text style={styles.sectionTitle}>Benefits of Sea Moss:</Text>
-            <Text style={styles.benefitItem}>- Boosts immune system and overall health</Text>
-            <Text style={styles.benefitItem}>- Improves digestion and gut health</Text>
-            <Text style={styles.benefitItem}>- Supports skin health and promotes a healthy complexion</Text>
-            <Text style={styles.benefitItem}>- Provides a natural source of iodine, aiding in thyroid function</Text>
-            <Text style={styles.benefitItem}>- Rich in Omega-3 fatty acids, which support heart health</Text>
+            <Text style={styles.benefitItem}>
+              - Boosts immune system and overall health
+            </Text>
+            <Text style={styles.benefitItem}>
+              - Improves digestion and gut health
+            </Text>
+            <Text style={styles.benefitItem}>
+              - Supports skin health and promotes a healthy complexion
+            </Text>
+            <Text style={styles.benefitItem}>
+              - Provides a natural source of iodine, aiding in thyroid function
+            </Text>
+            <Text style={styles.benefitItem}>
+              - Rich in Omega-3 fatty acids, which support heart health
+            </Text>
           </View>
 
           {/* Variants */}
@@ -80,30 +100,36 @@ const { width } = Dimensions.get('window');
             <View style={styles.variantItem}>
               <Text style={styles.variantTitle}>Sea Moss Gel</Text>
               <Text style={styles.variantDescription}>
-                A convenient, ready-to-use Sea Moss gel, perfect for adding to smoothies or skincare routines.
+                A convenient, ready-to-use Sea Moss gel, perfect for adding to
+                smoothies or skincare routines.
               </Text>
               <Image
-                source={{ uri: 'https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/gel.jpg' }}
+                source={{
+                  uri: "https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/gel.jpg",
+                }}
                 style={styles.variantImage}
                 resizeMode="cover"
               />
               <Text style={styles.variantPrice}>
-                <Text style={styles.salePrice}>$129.99</Text>{' '}
+                <Text style={styles.salePrice}>$129.99</Text>{" "}
                 <Text style={styles.originalPrice}>$149.99</Text>
               </Text>
             </View>
             <View style={styles.variantItem}>
               <Text style={styles.variantTitle}>Raw Sea Moss</Text>
               <Text style={styles.variantDescription}>
-                Raw, organic Sea Moss, ideal for those who prefer to prepare it themselves.
+                Raw, organic Sea Moss, ideal for those who prefer to prepare it
+                themselves.
               </Text>
               <Image
-                source={{ uri: 'https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/rock.jpg' }}
+                source={{
+                  uri: "https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/rock.jpg",
+                }}
                 style={styles.variantImage}
                 resizeMode="cover"
               />
               <Text style={styles.variantPrice}>
-                <Text style={styles.salePrice}>$109.99</Text>{' '}
+                <Text style={styles.salePrice}>$109.99</Text>{" "}
                 <Text style={styles.originalPrice}>$129.99</Text>
               </Text>
             </View>
@@ -121,7 +147,8 @@ const { width } = Dimensions.get('window');
                 <Text style={styles.reviewUserName}>John Doe</Text>
                 <Text style={styles.reviewTitle}>Great product!</Text>
                 <Text style={styles.reviewComment}>
-                  I really enjoyed using this Sea Moss product. Highly recommend it!
+                  I really enjoyed using this Sea Moss product. Highly recommend
+                  it!
                 </Text>
               </View>
               <View style={styles.reviewItem}>
@@ -137,10 +164,17 @@ const { width } = Dimensions.get('window');
       </ScrollView>
 
       {/* Add to Cart Button - Fixed at the Bottom */}
-     
-        <TouchableOpacity style={styles.addToCartButton} onPress={() => addToCart(selectedProduct ? selectedProduct : SAMPLE_PRODUCT )}>
-          <Text style={styles.addToCartButtonText}>Add to cart</Text>
-        </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.addToCartButton}
+        onPress={() => {
+          if (selectedProduct) {
+            addToCart(selectedProduct);
+          }
+        }}
+      >
+        <Text style={styles.addToCartButtonText}>Add to cart</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -149,7 +183,7 @@ const { width } = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
   },
   scrollViewContent: {
     paddingBottom: 100, // Space for the fixed button at the bottom
@@ -160,59 +194,59 @@ const styles = StyleSheet.create({
   productImage: {
     width: width, // Full width of the screen
     height: width, // Full width of the screen to maintain aspect ratio
-    resizeMode: 'cover', // Cover the entire space, cropping if necessary
+    resizeMode: "cover", // Cover the entire space, cropping if necessary
   },
   productInfo: {
     padding: 16,
   },
   productName: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#000',
+    fontWeight: "bold",
+    color: "#000",
     marginBottom: 8,
   },
   productDescription: {
     fontSize: 16,
-    color: '#555',
+    color: "#555",
     marginBottom: 8,
   },
   productPrice: {
     fontSize: 20,
-    fontWeight: 'bold',
-    color: '#000',
+    fontWeight: "bold",
+    color: "#000",
     marginBottom: 16,
   },
   salePrice: {
-    color: 'red',
-    fontWeight: 'bold',
+    color: "red",
+    fontWeight: "bold",
   },
   originalPrice: {
-    textDecorationLine: 'line-through',
-    color: '#888',
+    textDecorationLine: "line-through",
+    color: "#888",
   },
   featuresContainer: {
     marginBottom: 16,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000',
+    fontWeight: "bold",
+    color: "#000",
     marginBottom: 8,
   },
   featureItem: {
     fontSize: 14,
-    color: '#333',
+    color: "#333",
     marginBottom: 4,
   },
   benefitsContainer: {
     marginBottom: 16,
     padding: 16,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: "#f0f0f0",
     borderRadius: 8,
   },
   benefitItem: {
     fontSize: 14,
-    color: '#333',
+    color: "#333",
     marginBottom: 4,
   },
   variantsContainer: {
@@ -223,12 +257,12 @@ const styles = StyleSheet.create({
   },
   variantTitle: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000',
+    fontWeight: "bold",
+    color: "#000",
   },
   variantDescription: {
     fontSize: 14,
-    color: '#555',
+    color: "#555",
     marginBottom: 4,
   },
   variantImage: {
@@ -239,20 +273,20 @@ const styles = StyleSheet.create({
   },
   variantPrice: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000',
+    fontWeight: "bold",
+    color: "#000",
   },
   reviewsContainer: {
     marginBottom: 16,
   },
   reviewsScrollView: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   reviewItem: {
     width: width * 0.8, // Each review takes up 80% of the screen width
     marginRight: 16,
     padding: 16,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: "#f9f9f9",
     borderRadius: 8,
     // shadowColor: '#000',
     // shadowOpacißty: 0.1,
@@ -262,34 +296,34 @@ const styles = StyleSheet.create({
   },
   reviewUserName: {
     fontSize: 14,
-    fontWeight: 'bold',
-    color: '#000',
+    fontWeight: "bold",
+    color: "#000",
     marginBottom: 4,
   },
   reviewTitle: {
     fontSize: 14,
-    color: '#555',
+    color: "#555",
     marginBottom: 4,
   },
   reviewComment: {
     fontSize: 14,
-    color: '#333',
+    color: "#333",
   },
   addToCartButton: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#000',
+    backgroundColor: "#000",
     paddingVertical: 16,
     borderRadius: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   addToCartButtonText: {
     fontSize: 18,
-    color: '#FFF',
-    fontWeight: 'bold',
+    color: "#FFF",
+    fontWeight: "bold",
   },
 });
 
@@ -443,4 +477,3 @@ export default ProductDetailsPageVTwo;
 // });
 
 // export default ProductDetailsPageVTwo;
-

@@ -20,6 +20,7 @@ import { ClientStoreProvider } from "@/contexts/ClientStoreContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StyleSheet } from "react-native";
 import { CartProvider } from "@/contexts/CartContext";
+import { CollectionProvider } from "@/contexts/CollectionContext";
 // import { ProductProvider } from '@/contexts/ProductContext';
 
 export {
@@ -67,6 +68,7 @@ function RootLayoutNav() {
       <AuthProvider>
         <CartProvider>
         <ClientStoreProvider>
+          <CollectionProvider>
           <ProductProvider>
             <OrderProvider>
               <ThemeProvider
@@ -112,6 +114,7 @@ function RootLayoutNav() {
               </ThemeProvider>
             </OrderProvider>
           </ProductProvider>
+          </CollectionProvider>
         </ClientStoreProvider>
         </CartProvider>
       </AuthProvider>

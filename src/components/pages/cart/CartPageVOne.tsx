@@ -82,9 +82,9 @@ const CartScreen = () => {
         }
     />
 
- 
+
 <View>
-      <>
+<>
           <View style={styles.priceContainer}>
           
           <View  style={styles.priceAndTitle}>
@@ -116,14 +116,14 @@ const CartScreen = () => {
         
         </>
       </View>
+      <View style={{paddingTop: 30}}>
         <PaymentPayScreen 
            publishableKey={CONSTANTS.publishableKeyTest}
-          //publishableKey={CONSTANTS.publishableKeyLive}
+          // publishableKey={CONSTANTS.publishableKeyLive}
           amount={totalSum}
           shippingAmount={totalShipping} 
         />
-    
-
+    </View>
 
         {/* <CheckoutButton amount={totalSum} shippingAmount={totalShipping} /> */}
       
