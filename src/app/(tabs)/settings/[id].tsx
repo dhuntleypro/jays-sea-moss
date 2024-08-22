@@ -17,6 +17,7 @@ const Page = () => {
         padding: 20,
       }}>Setting Detail Page - {id}</Text>
 
+<Text>{authState?.user?.name}</Text>
      <Button onPress={onLogout} title="Logout" />
 
     </View>

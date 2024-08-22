@@ -5,6 +5,7 @@ import { useAuth } from "./AuthContext";
 import { Alert } from "react-native";
 import { router } from "expo-router";
 import MyAlert from "@/components/library/interfaces/MyAlert";
+import { CONSTANTS } from "@/utils/constants";
 
 interface ProductContextProps {
   products: ProductModelProps[];
@@ -106,7 +107,7 @@ export const ProductProvider = ({ children }: { children: ReactNode }) => {
     setError(null);
     try {
       const email = authState.user.email || '';
-      const store_owner_id = authState.user.store_owner_id || '';
+      const store_owner_id = CONSTANTS.store_id // authState.user.store_owner_id || '';
 
       const response = await getProducts(store_owner_id, email);
       const fetchedProducts = response.data;

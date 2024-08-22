@@ -35,11 +35,11 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (authState?.token) {
-      getClientOrders(); // Initial load of orders
-    }
-  }, [authState?.token]);
+  // useEffect(() => {
+  //   if (authState?.token) {
+  //     getClientOrders(); // Initial load of orders
+  //   }
+  // }, [authState?.token]);
 
   const addOrder = async (order: OrderModelProps) => {
     if (!authState?.user) return;

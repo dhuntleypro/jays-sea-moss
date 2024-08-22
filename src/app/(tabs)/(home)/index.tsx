@@ -1,31 +1,109 @@
+// import SplashScreenView from "@/components/pages/SplashScreenView";
+// import { useAuth } from "@/contexts/AuthContext";
+// import { Redirect } from "expo-router";
+// import { useEffect } from "react";
+
+// export default function Page() {
+//   const { authState } = useAuth();
+
+//   useEffect(() => {
+//     console.log('Current Auth State:', authState);
+//   }, [authState]);
+
+//   if (authState?.authenticated === true) {
+//     return <Redirect href="/(tabs)/(home)/(drawer)/home" />;
+//   } else if (authState?.authenticated === false) {
+//     return <Redirect href="/welcome" />;
+//   } else {
+//     return <SplashScreenView />;
+//   }
+// }
+
+
+
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import HomeDesignTwo from '@/components/library/home/HomeDesignTwo';
+import { useAuth } from '@/contexts/AuthContext'; // Import your Auth context
 import { Redirect } from 'expo-router';
-import { useAuth } from '@/contexts/AuthContext';
-import SplashScreenView from '@/components/pages/SplashScreenView';
+import WelcomePageTwo from '@/components/pages/welcome/WelcomePageTwo';
 
-export default function Page() {
-  const { authState } = useAuth();
-  const [showSplash, setShowSplash] = useState(false);
+const Index = () => {
+  const { authState } = useAuth(); // Access the authState from your context
+  const [isReady, setIsReady] = useState(false);
 
-  // Uncomment if you want to show the splash screen for a fixed duration before redirecting
-  // useEffect(() => {
-  //   const splashTimer = setTimeout(() => {
-  //     setShowSplash(true);
-  //   }, 3000);
+  useEffect(() => {
+    if (authState?.authenticated !== null) {
+      setIsReady(true);
+    }
+  }, [authState?.authenticated]);
 
-  //   // Clean up the timer when the component unmounts
-  //   return () => clearTimeout(splashTimer);
-  // }, []);
-
-  // if (showSplash) {
-  //   return <SplashScreenView />;
-  // }
-
-  // Determine where to redirect based on the authentication state
-  if (authState?.authenticated === true ) {
-    return <Redirect href="/" />;
-  } else {
-    // return <Redirect href="/onboarding" />;
-    return <Redirect href="/welcome" />;
+  // Handle loading state or when authState is not yet defined
+  if (!isReady) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
   }
-}
+
+  // Render based on authentication state
+  return authState?.authenticated ? (
+    <HomeDesignTwo />
+  ) : (
+    // <Redirect href="/welcome" />
+    <WelcomePageTwo />
+  );
+};
+
+export default Index;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+});
+
+// import { StyleSheet, Text, View } from 'react-native'
+// import React from 'react'
+// import HomeDesignTwo from '@/components/library/home/HomeDesignTwo'
+// import { useAuth } from '@/contexts/AuthContext' // Import your Auth context
+// import { Redirect } from 'expo-router'
+
+// const Index = () => {
+//   const { authState } = useAuth(); // Access the authState from your context
+
+//   // give it time to
+ 
+//   return (
+//     <View style={styles.container}>
+//       {authState?.authenticated === true ? (
+//         <HomeDesignTwo />
+//       ) : (
+//         <Redirect href="/welcome" />
+//       )}
+//     </View>
+//   );
+// }
+
+// export default Index;
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   defaultView: {
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+// });

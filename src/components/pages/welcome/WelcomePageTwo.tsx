@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, StatusBar, Modal, Dimensions } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, StatusBar, Modal, Dimensions, ActivityIndicator, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useClientStore } from '@/contexts/ClientStoreContext';
-import LoginComponentTwo from '../login/LoginComponentTwo';
+import { getStore } from '@/api/storeApi';
+import LoginComponentOne from '../login/LoginComponentOne';
+import { CONSTANTS } from '@/utils/constants';
+import { ClientStoreProvider, useClientStore } from '@/contexts/ClientStoreContext';
 import { router } from 'expo-router';
-// import LoginComponentOne from '@/components/LoginComponentOne'; // Make sure this import is correct
+import { useAuth } from '@/contexts/AuthContext';
 
 const { width, height } = Dimensions.get("screen");
 
 export default function WelcomePageTwo() {
-  const { store } = useClientStore();
-  const welcomeImage = store?.images?.welcome_image ?? "";
-  
-  // State to control modal visibility
+  const [isLoading, setIsLoading] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
+  const {  store } = useClientStore() 
+  const {  authState } = useAuth() 
+
+  // const welcomeImage = store?.images?.welcome_image ?? "";
 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" translucent backgroundColor="transparent" />
       
-      {welcomeImage ? (
+     
         <ImageBackground
-          source={{ uri: welcomeImage }}
+          source={{ uri: "https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/waterfall.jpg" }}
           style={styles.backgroundImage}
           resizeMode="cover"
         >
@@ -32,9 +35,13 @@ export default function WelcomePageTwo() {
             </View>
 
             <View style={styles.buttonContainer}>
-            {/* <TouchableOpacity style={styles.buttonPrimary} onPress={() => setModalVisible(true)}> */}
-            <TouchableOpacity style={styles.buttonPrimary} onPress={() => router.push("/login")}>
-            <Ionicons name="log-in-outline" size={20} color="black" />
+              <TouchableOpacity style={styles.buttonPrimary} onPress={() => {
+                console.log(authState?.authenticated)
+                router.push("/login")
+                
+                
+                }}>
+                <Ionicons name="log-in-outline" size={20} color="black" />
                 <Text style={styles.buttonPrimaryText}>Proceed to Login</Text>
                 <Ionicons name="arrow-forward" size={20} color="black" />
               </TouchableOpacity>
@@ -47,15 +54,11 @@ export default function WelcomePageTwo() {
             </View>
           </View>
         </ImageBackground>
-      ) : (
-        <View style={styles.noImageContainer}>
-          <Text style={styles.noImageText}>No image available</Text>
-        </View>
-      )}
+    
 
       {/* Modal for Login */}
-      {/* <Modal
-        animationType="fullscreen"
+      <Modal
+        animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
@@ -68,15 +71,21 @@ export default function WelcomePageTwo() {
             >
               <Ionicons name="close-outline" size={24} color="black" />
             </TouchableOpacity>
-            <LoginComponentTwo />
+            <LoginComponentOne />
           </View>
         </View>
-      </Modal> */}
+      </Modal>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5F5F5',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -97,7 +106,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.3)', // Dark overlay for text visibility
     paddingTop: 60,
     paddingBottom: 40,
-    width: width
+    width: width,
   },
   header: {
     alignItems: 'center',
@@ -180,8 +189,6 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
 });
-
-
 
 
 
