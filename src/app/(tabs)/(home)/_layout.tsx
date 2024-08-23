@@ -1,10 +1,13 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import { router, Stack } from "expo-router";
 import { Fontisto, Feather, Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/utils/theme";
+import { CartContext } from "@/contexts/CartContext";
 
 const HomeLayout = () => {
+  const { quantity} = useContext(CartContext)
+
   return (
     <Stack>
       <Stack.Screen
@@ -50,14 +53,14 @@ const HomeLayout = () => {
         name="products"
         options={{
           title: "Products",
-          headerRight: () => (
+          headerRight: () => ( // Need
             <TouchableOpacity
               style={styles.cartButton}
               onPress={() => router.push("/cart")}
             >
               <Fontisto name="shopping-bag" size={24} />
               <View style={styles.cartCount}>
-                <Text style={styles.cartNumber}>3</Text>
+                <Text style={styles.cartNumber}>{quantity}</Text>
               </View>
             </TouchableOpacity>
           ),

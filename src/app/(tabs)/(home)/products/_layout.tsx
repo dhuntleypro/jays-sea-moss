@@ -14,15 +14,8 @@ const ProductsLayout = () => {
     <Stack.Screen 
     name='index'
     options={{
-      headerRight: () => (
-        <TouchableOpacity style={styles.cartButton} onPress={() => router.push("/cart")}>
-          <Fontisto name='shopping-bag' size={24} />
-          <View style={styles.cartCount}>
-            <Text style={styles.cartNumber}>3</Text>
-          </View>
-        </TouchableOpacity>
-      ),
-      // headerShown: false,
+     
+      headerShown: false,
     }}
     />
     <Stack.Screen 

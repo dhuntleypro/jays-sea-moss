@@ -38,11 +38,11 @@ const SettingsScreen = () => {
           <Text style={styles.sectionTitle}>General</Text>
           
           <Link href={'settings/profile-information' as never} asChild>
-          <TouchableOpacity style={styles.option}>
-            <FontAwesome5 name="user" size={20} color="black" />
-            <Text style={styles.optionText}>Profile information</Text>
-            <Ionicons name="chevron-forward" size={20} color="black" />
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.option}>
+              <FontAwesome5 name="user" size={20} color="black" />
+              <Text style={styles.optionText}>Profile information</Text>
+              <Ionicons name="chevron-forward" size={20} color="black" />
+            </TouchableOpacity>
           </Link>
 
 {/* 

@@ -5,6 +5,7 @@ import WelcomePageOne from '@/components/pages/welcome/WelcomePageOne'
 
 const welcome = () => {
   return (
+    // <Text>yooo</Text>
     <WelcomePageTwo />
     // <WelcomePageOne />
   )

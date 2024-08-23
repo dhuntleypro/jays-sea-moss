@@ -10,6 +10,7 @@ import LoginComponentTwo from '@/components/pages/login/LoginComponentTwo'
      
 const Login = () => {
   return (
+    // <Text>login here</Text>
      <LoginComponentTwo />    
     //  <WelcomePageOne />
     // <WelcomePageTwo />

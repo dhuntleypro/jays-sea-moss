@@ -33,12 +33,12 @@ export const ClientStoreProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    if (authState?.token) {
+    // if (authState?.token) {
       getClientStore(); // Initial load of the store
       console.log("Auth:::::::")
       console.log(authState?.token)
-    }
-  }, [authState?.token]);
+    // }
+  }, []);
 
   const addStore = (newStore: StoreModelProps) => {
     setStore(newStore);

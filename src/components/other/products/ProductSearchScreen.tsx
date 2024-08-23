@@ -7,6 +7,7 @@ import { ProductModelProps } from '@/models/ProductModelProps';
 import { useClientProduct } from '@/contexts/ProductContext';
 import ProductCardV2 from '@/components/library/card/ProductCardV2';
 import SearchBarVOne from '@/components/library/search/SearchBarVOne';
+import ProductCardView from '@/components/library/card/ProductCardView';
 // import ProductCardV2 from '../cards/other/ProductCardV2';
 
 const { width } = Dimensions.get('window');
@@ -32,12 +33,13 @@ const ProductSearchScreen = () => {
 
   const renderProduct = ({ item }: { item: ProductModelProps }) => (
     <View style={styles.gridLayout}>
-      <ProductCardV2 {...item} />
-    </View>
+      {/* <ProductCardV2 {...item} /> */}
+      <ProductCardView product={item} />
+      </View>
   );
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       {/* <View style={styles.searchContainer}> */}
         {/* <TouchableOpacity>
           <Ionicons 
@@ -55,8 +57,10 @@ const ProductSearchScreen = () => {
             placeholder='What are you looking for'
           />
         </View> */}
-
+<View style={{padding: 20}}>
 <SearchBarVOne />
+
+</View>
         {/* <TouchableOpacity style={styles.searchBtn} onPress={() => handleSearch(searchTerm)}>
           <Feather name='search' size={24} color={COLORS.offwhite}/>
         </TouchableOpacity> */}
@@ -70,7 +74,7 @@ const ProductSearchScreen = () => {
         columnWrapperStyle={{ justifyContent: 'space-between', marginBottom: 12 }}
         contentContainerStyle={{ marginHorizontal: 12 }}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

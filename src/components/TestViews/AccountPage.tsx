@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useAuth } from '@/contexts/AuthContext';
 
-const SettingsPage = () => {
+const AccountPage = () => {
   const {authState } = useAuth()
   return (
     <ScrollView style={styles.container}>
@@ -83,7 +83,7 @@ const SettingsPage = () => {
   );
 };
 
-export default SettingsPage;
+export default AccountPage;
 
 const styles = StyleSheet.create({
   container: {

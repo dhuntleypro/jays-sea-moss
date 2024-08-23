@@ -94,8 +94,8 @@ function RootLayoutNav() {
                    <Stack.Screen
                     name="welcome"
                     options={{
-                      presentation: "fullScreenModal",
-                      headerShown: false,
+                      // presentation: "fullScreenModal",
+                      // headerShown: false,
                     }}
                   />
                     <Stack.Screen

@@ -7,7 +7,7 @@ const ProductsLayout = () => {
    <Stack>
 
     <Stack.Screen 
-    name='settingsPage'
+    name='settings'
     options={{
       
     }}

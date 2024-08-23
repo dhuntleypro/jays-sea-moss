@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -22,6 +22,14 @@ const { width } = Dimensions.get("window");
 
 const TopHomeSeaction: React.FC = () => {
   const { store } = useClientStore();
+
+  const [isMenuVisible, setIsMenuVisible] = useState(true);
+
+  const handleMenuPress = () => {
+    // Toggle the visibility of the menu icon
+    setIsMenuVisible((prev) => !prev);
+  };
+
 
   return (
     <View style={styles.container}>
@@ -49,7 +57,7 @@ const TopHomeSeaction: React.FC = () => {
             delay: 1300,
           }}
         >
-          <TouchableOpacity style={styles.menuIcon}>
+          <TouchableOpacity style={styles.menuIcon} onPress={handleMenuPress}>
             <Ionicons name="menu-outline" size={24} color="black" />
           </TouchableOpacity>
         </MotiView>
@@ -77,23 +85,25 @@ const TopHomeSeaction: React.FC = () => {
         <MotiView
           key={`t1`} // Force re-render to reset animation
           from={{ opacity: 0, translateY: 50, scale: 0.85 }}
-          animate={{ opacity: 1, translateY: 0, scale: 1 }}
+          // animate={{ opacity: 1, translateY: 0, scale: 1 }}
+          animate={{ opacity: isMenuVisible ? 1 : 0, translateY: isMenuVisible ? 0 : -50 , scale: isMenuVisible ? 1 : 1 }}
+
           transition={{
             type: "timing",
             duration: 600,
-            delay: 600,
+            delay:  isMenuVisible ? 600 : 0,
           }}
         >
-          <Text style={styles.productItem}>All Products</Text>
+          <Text style={styles.productItem}> All Products</Text>
         </MotiView>
         <MotiView
           key={`t2`} // Force re-render to reset animation
           from={{ opacity: 0, translateY: 50, scale: 0.85 }}
-          animate={{ opacity: 1, translateY: 0, scale: 1 }}
+          animate={{ opacity: isMenuVisible ? 1 : 0, translateY: isMenuVisible ? 0 : -50 , scale: isMenuVisible ? 1 : 1 }}
           transition={{
             type: "timing",
             duration: 600,
-            delay: 700,
+            delay:  isMenuVisible ? 700 : 0,
           }}
         >
           <Text style={styles.productItem}>Raw Sea Moss</Text>
@@ -101,11 +111,11 @@ const TopHomeSeaction: React.FC = () => {
         <MotiView
           key={`t3`} // Force re-render to reset animation
           from={{ opacity: 0, translateY: 50, scale: 0.85 }}
-          animate={{ opacity: 1, translateY: 0, scale: 1 }}
+          animate={{ opacity: isMenuVisible ? 1 : 0, translateY: isMenuVisible ? 0 : -50 , scale: isMenuVisible ? 1 : 1 }}
           transition={{
             type: "timing",
             duration: 600,
-            delay: 800,
+            delay:  isMenuVisible ? 800 : 0,
           }}
         >
           <Text style={styles.productItem}>Sea Moss Gel</Text>
@@ -113,11 +123,11 @@ const TopHomeSeaction: React.FC = () => {
         <MotiView
           key={`t4`} // Force re-render to reset animation
           from={{ opacity: 0, translateY: 50, scale: 0.85 }}
-          animate={{ opacity: 1, translateY: 0, scale: 1 }}
+          animate={{ opacity: isMenuVisible ? 1 : 0, translateY: isMenuVisible ? 0 : -50 , scale: isMenuVisible ? 1 : 1 }}
           transition={{
             type: "timing",
             duration: 600,
-            delay: 900,
+            delay:  isMenuVisible ? 900 : 0,
           }}
         >
           <Text style={styles.productItem}>Sea Moss Capsules</Text>
@@ -125,11 +135,11 @@ const TopHomeSeaction: React.FC = () => {
         <MotiView
           key={`t5`} // Force re-render to reset animation
           from={{ opacity: 0, translateY: 50, scale: 0.85 }}
-          animate={{ opacity: 1, translateY: 0, scale: 1 }}
+          animate={{ opacity: isMenuVisible ? 1 : 0, translateY: isMenuVisible ? 0 : -50 , scale: isMenuVisible ? 1 : 1 }}
           transition={{
             type: "timing",
             duration: 600,
-            delay: 1000,
+            delay:  isMenuVisible ? 1000 : 0,
           }}
         >
           <Text style={styles.productItem}>Sea Moss Powder</Text>

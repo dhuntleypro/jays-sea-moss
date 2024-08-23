@@ -13,9 +13,8 @@ const SettingsPageWeb = () => {
     </Head> */}
 
     <SEOHeader title={'Settings'} content={'Change your settings'} />
-    <h2>settings</h2>
-    <CustomLink url={'/'} title={'sign out'} replace />
-
+      <h2>settings</h2>
+      <CustomLink url={'/'} title={'sign out'} replace />
     </>
   )
 }
