@@ -9,19 +9,21 @@ import { Ionicons , Fontisto} from '@expo/vector-icons'
 // import SearchBar from '@/components/other/general/SearchBar';
 // import Carousel from '@/components/home/Carousel';
 // import SectionHeader from '@/components/home/Headings';
-import ProductRow from '@/components/other/cards/other/ProductRow';
-import { COLORS, SIZES } from '@/utils/theme';
-import { TopSectionHeaderV1 } from '@/components/pages/home/TopSectionHeader';
-import Carousel from '@/components/pages/home/Carousel';
-import SectionHeader from '@/components/pages/home/Headings';
-import HomeDesignOne from '@/components/library/home/HomeDesignOne';
-import HomeDesignTwo from '@/components/library/home/HomeDesignTwo';
+// import ProductRow from '@/components/other/cards/other/ProductRow';
+// import { COLORS, SIZES } from '@/utils/theme';
+// import { TopSectionHeaderV1 } from '@/components/pages/home/TopSectionHeader';
+// import Carousel from '@/components/pages/home/Carousel';
+// import SectionHeader from '@/components/pages/home/Headings';
+// import HomeDesignOne from '@/components/library/home/HomeDesignOne';
+// import HomeDesignTwo from '@/components/library/home/HomeDesignTwo';
 
 
 const Home: FC = () => {
     return (
  
-      <HomeDesignTwo/>
+      // <HomeDesignTwo/>
+
+      <Text>Home....</Text>
   
 
   )

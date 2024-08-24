@@ -1,100 +1,24 @@
-import { Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import { router, Tabs } from 'expo-router'
-import { Ionicons } from '@expo/vector-icons'
-import Footer from '@/components/web/Footer'
-import TopHeader from '@/components/web/TopHeader'
-const TabLayout = () => {
-  return (
-<>
+import React, { useState } from 'react';
+import { Redirect } from 'expo-router';
+import { useAuth } from '@/contexts/AuthContext';
+// import { AuthenticatedTabs } from '@/components/AuthenticatedTabs';
+import { LoadingScreen } from '@/components/LoadingScreen';
+import AuthenticatedTabs from '@/components/AuthenticatedTabs';
+// import { AuthenticatedTabs } from './AuthenticatedTabs';
+// import { LoadingScreen } from './LoadingScreen';
 
-       
-   <Tabs>
-    <Tabs.Screen 
-      name='(home)' // 'home'
-      options={{
-        headerShown: false,
-        tabBarLabel: 'Home',
-        tabBarIcon : ({size, color }) => <Ionicons name='square' size={size} color={color} />
-      }}
-      
-    />
-      <Tabs.Screen 
-      name='client-orders'
-      options={{
-        href: null,
-        headerShown: false,
-        tabBarLabel: 'Orders',
-        tabBarIcon : ({size, color }) => <Ionicons name='newspaper' size={size} color={color} />
-      }}
-      />
-     <Tabs.Screen 
-      name='client-products'
-      options={{
-        href: null,
+export default function TabLayout() {
+  const { authState } = useAuth();
+  const [isLoaded, setIsLoaded] = useState(false);
 
-        headerShown: false,
-        tabBarLabel: 'Products',
-        tabBarIcon : ({size, color }) => <Ionicons name='person' size={size} color={color} />
-      }}
-      />
-        <Tabs.Screen 
-      name='collections'
-      options={{
-        // headerShown: false,
-        tabBarLabel: 'Collections',
-        tabBarIcon : ({size, color }) => <Ionicons name='newspaper' size={size} color={color} />
-      }}
-      />
-     <Tabs.Screen 
-      name='cart'
-      options={{
-        // headerShown: false,
-        headerLeft: () => (
-          <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={24} color="black" />
-          </TouchableOpacity>
-        ),
-        tabBarLabel: 'Cart',
-        tabBarIcon : ({size, color }) => <Ionicons name='person' size={size} color={color} />
-      }}
-      />
-       <Tabs.Screen 
-      name='(settings)'
-      options={{
-        // href:null,
-        headerShown: false,
-        tabBarLabel: 'Settings',
-        tabBarIcon : ({size, color }) => <Ionicons name='settings-outline' size={size} color={color} />
-      }}
-    /> 
+  if (!isLoaded) {
+    return <LoadingScreen onLoaded={() => setIsLoaded(true)} />;
+  }
 
-
- 
-
-    {/* Hidden */}
-
-    <Tabs.Screen 
-      name='search'
-      options={{
-        href: null,
-        tabBarLabel: 'Collections',
-        tabBarIcon : ({size, color }) => <Ionicons name='newspaper' size={size} color={color} />
-      }}
-      />
-    </Tabs>
-    
-    </>
-  )
+  return authState?.authenticated ? <AuthenticatedTabs /> : <Redirect href="/welcome" />;
 }
 
-export default TabLayout
 
-const styles = StyleSheet.create({
-  backButton: {
-    marginLeft: 8, // Adjust margin to position the back button
-  },
-})
 
 
 
@@ -110,12 +34,15 @@ const styles = StyleSheet.create({
 
 // import React from 'react';
 // import FontAwesome from '@expo/vector-icons/FontAwesome';
-// import { Link, Tabs } from 'expo-router';
-// import { Pressable } from 'react-native';
+// import { Link, Redirect, router, Tabs } from 'expo-router';
+// import { Platform, Pressable, View } from 'react-native';
 
 // import Colors from '@/constants/Colors';
 // import { useColorScheme } from '@/hooks/useColorScheme';
 // import { useClientOnlyValue } from '@/hooks/useClientOnlyValue';
+// import { useAuth } from '@/contexts/AuthContext';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+// import { Text } from 'react-native';
 
 // // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 // function TabBarIcon(props: {
@@ -125,21 +52,37 @@ const styles = StyleSheet.create({
 //   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 // }
 
+
+
+
+
 // export default function TabLayout() {
 //   const colorScheme = useColorScheme();
+//   const { authState } = useAuth()
 
 //   return (
+
+    
+//     // Show Login / Register
+//     authState?.authenticated ? (
+
+//     // Show Tab Home Screen
 //     <Tabs
 //       screenOptions={{
+//         // remove tab bar from website
+//         tabBarStyle: Platform.OS === 'web' ? { display: 'none' } : {},
 //         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
 //         // Disable the static render of the header on web
 //         // to prevent a hydration error in React Navigation v6.
 //         headerShown: useClientOnlyValue(false, true),
+        
+          
+       
 //       }}>
 //       <Tabs.Screen
-//         name= "one" // "index"
+//         name="(home)"
 //         options={{
-//           title: 'Tab One',
+//           title: 'Home',
 //           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
 //           headerRight: () => (
 //             <Link href="/modal" asChild>
@@ -165,5 +108,9 @@ const styles = StyleSheet.create({
 //         }}
 //       />
 //     </Tabs>
+//     ) : (
+//       <Redirect href="/welcome" />
+
+//     )
 //   );
 // }

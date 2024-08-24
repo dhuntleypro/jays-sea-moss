@@ -8,7 +8,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import CustomButton from '@/components/library/buttons/WhiteButton';
 import MyButton from '@/components/library/buttons/WhiteButton';
 
-const SettingsScreen = () => {
+const SettingsPage = () => {
   const insets = useSafeAreaInsets();
 
   const { authState , onLogout } = useAuth()
@@ -175,4 +175,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SettingsScreen;
+export default SettingsPage;

@@ -20,16 +20,8 @@ const CollectionPageVOne: React.FC = () => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <TouchableOpacity>
-          <MaterialIcons name="menu" size={24} color="white" />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <FontAwesome name="user-circle" size={24} color="white" />
-        </TouchableOpacity>
-      </View>
-
+    <View style={styles.container}>
+     
       <Text style={styles.title}>TOP COLLECTIONS</Text>
 
       <FlatList
@@ -39,7 +31,7 @@ const CollectionPageVOne: React.FC = () => {
         contentContainerStyle={styles.collectionsList}
         showsVerticalScrollIndicator={false}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 

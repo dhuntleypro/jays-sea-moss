@@ -1,46 +1,62 @@
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import { router } from 'expo-router';
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import HomeDesignOne from '@/components/library/home/HomeDesignOne'
+import HomeDesignTwo from '@/components/library/home/HomeDesignTwo'
 
-const Index = () => {
-  const { authState } = useAuth();
-  const [isReady, setIsReady] = useState(false);
+const index = () => {
+  return (
+    // <HomeDesignOne />
+    <HomeDesignTwo />
+  )
+}
 
-  useEffect(() => {
-    // Ensure the root layout is mounted before navigating
-    const timeout = setTimeout(() => {
-      if (authState?.authenticated !== null) {
-        setIsReady(true);
-        if (authState?.authenticated === true) {
-          router.push("/(home)");
-        } else if (authState?.authenticated === false) {
-          router.push("/welcome");
-        }
-      }
-    }, 0); // Adding a 0ms timeout to ensure it waits until the layout is mounted
+export default index
 
-    return () => clearTimeout(timeout);
-  }, [authState?.authenticated]);
+const styles = StyleSheet.create({})
 
-  if (!isReady) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#0000ff" />
-      </View>
-    );
-  }
 
-  return null;
-};
 
-export default Index;
 
-const styles = StyleSheet.create({
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-})
+
+
+
+
+
+
+
+
+
+// import { StyleSheet } from 'react-native';
+
+// import EditScreenInfo from '@/components/EditScreenInfo';
+// import { Text, View } from '@/components/Themed';
+// import getCurrentPath from '@/hooks/getCurrentPath';
+
+// export default function HomeTabScreen() {
+//   const currentPath = getCurrentPath()
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.title}>Home Tab</Text>
+//       <Text>{currentPath}</Text>
+//       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+//       <EditScreenInfo path="app/(tabs)/index.tsx" />
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   title: {
+//     fontSize: 20,
+//     fontWeight: 'bold',
+//   },
+//   separator: {
+//     marginVertical: 30,
+//     height: 1,
+//     width: '80%',
+//   },
+// });

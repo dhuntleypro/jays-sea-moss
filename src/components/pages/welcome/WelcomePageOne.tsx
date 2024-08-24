@@ -14,7 +14,7 @@ export default function WelcomePageOne() {
     >
       <View style={styles.logoContainer}>
         <Image
-          source={require('../../../../assets/images/logo.png')} // Replace with your logo path
+          source={require('../../../../src/assets/images/logo.png')} // Replace with your logo path
           style={styles.logo}
           resizeMode="cover"
         />

@@ -5,9 +5,10 @@ import { CartContext } from '@/contexts/CartContext'
 import CartHeader from '@/components/other/headers/CartHeader'
 import { generalStyles } from '@/components/other/general/Styles'
 import CartCard from '@/components/other/cart/CartCard'
-import convertToCurrency from '@/hooks/convertToCurrency'
+// import convertToCurrency from '@/hooks/convertToCurrency'
 import { CONSTANTS } from '@/utils/constants'
 import PaymentPayScreen from './PaymentPayScreen'
+import convertToCurrency from '@/hooks/convertToCurrency'
 // import CartHeader from '../components/headers/CartHeader'
 // import { Avatar, Divider } from 'react-native-paper'
 // import LinearGradient from 'react-native-linear-gradient' // cause error
@@ -125,7 +126,6 @@ const CartScreen = () => {
         />
     </View>
 
-        {/* <CheckoutButton amount={totalSum} shippingAmount={totalShipping} /> */}
       
       <View style={{paddingBottom: 50}}></View>
 

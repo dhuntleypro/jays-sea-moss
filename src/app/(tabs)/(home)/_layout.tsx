@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, useColorScheme, View } from "react-native";
 import React, { useContext } from "react";
 import { router, Stack } from "expo-router";
 import { Fontisto, Feather, Ionicons } from "@expo/vector-icons";
@@ -7,25 +7,16 @@ import { CartContext } from "@/contexts/CartContext";
 
 const HomeLayout = () => {
   const { quantity} = useContext(CartContext)
+  const colorScheme = useColorScheme();
 
   return (
     <Stack>
       <Stack.Screen
         name="index"
         options={{
-          title: "Home1",
+          title: "Home",
           headerShown: false,
-          // headerRight: () => (
-          //   <TouchableOpacity
-          //     style={styles.cartButton}
-          //     onPress={() => router.push("/cart")}
-          //   >
-          //     <Fontisto name="shopping-bag" size={24} />
-          //     <View style={styles.cartCount}>
-          //       <Text style={styles.cartNumber}>3</Text>
-          //     </View>
-          //   </TouchableOpacity>
-          // ),
+         
         }}
       />
 
@@ -41,11 +32,11 @@ const HomeLayout = () => {
         name="search"
         options={{
           title: "Search",
-          headerLeft: () => (
-            <TouchableOpacity style={styles.backButton}>
-              <Ionicons name="arrow-back" size={24} color="black" />
-            </TouchableOpacity>
-          ),
+          // headerLeft: () => (
+          //   <TouchableOpacity style={styles.backButton}>
+          //     <Ionicons name="arrow-back" size={24} color="black" />
+          //   </TouchableOpacity>
+          // ),
         }}
       />
 

@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
+import "react-native-reanimated";
+
 import React from "react";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ProductProvider } from "@/contexts/ProductContext";
@@ -30,32 +32,32 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "index", // "/home" //"index" // '(tabs)',
+  initialRouteName: "(tabs)",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require("../../assets/fonts/SpaceMono-Regular.ttf"),
+    SpaceMono: require("src/assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
+  // // Expo Router uses Error Boundaries to catch errors in the navigation tree.
+  // useEffect(() => {
+  //   if (error) throw error;
+  // }, [error]);
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded])
+  // useEffect(() => {
+  //   if (loaded) {
+  //     SplashScreen.hideAsync();
+  //   }
+  // }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
+  // if (!loaded) {
+  //   return null;
+  // }
 
   return <RootLayoutNav />;
 }
@@ -64,65 +66,44 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-   
-      <AuthProvider>
-        <CartProvider>
+    <AuthProvider>
+      <CartProvider>
         <ClientStoreProvider>
           <CollectionProvider>
-          <ProductProvider>
-            <OrderProvider>
-              <ThemeProvider
-                value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-              >
-                <Stack>
-                  {/* <Stack.Screen name="onboarding" options={{ presentation:  'fullScreenModal' , headerShown: false}} /> */}
-                  <Stack.Screen
-                    name="(tabs)"
-                    options={{ headerShown: false }}
-                  />
-                  <Stack.Screen
-                    name="modal"
-                    options={{ presentation: "modal" }}
-                  />
-                  <Stack.Screen
-                    name="login"
-                    options={{
-                      presentation: "fullScreenModal",
-                      headerShown: false,
-                    }}
-                  />
-                   <Stack.Screen
-                    name="welcome"
-                    options={{
-                      // presentation: "fullScreenModal",
-                      // headerShown: false,
-                    }}
-                  />
+            <ProductProvider>
+              <OrderProvider>
+                <ThemeProvider
+                  value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+                >
+                  <Stack>
                     <Stack.Screen
-                    name="register"
-                    options={{
-                      presentation: "fullScreenModal",
-                      headerShown: false,
-                    }}
-                  />
-                 
-                  {/* <Stack.Screen name="register" options={{ presentation: 'fullScreenModal' }} /> */}
-                  {/* <Stack.Screen name="register" options={{ presentation: 'fullScreenModal' }} /> */}
-                  {/* <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-                <Stack.Screen name="modal" options={{ presentation: 'modal' }} /> */}
-                </Stack>
-              </ThemeProvider>
-            </OrderProvider>
-          </ProductProvider>
+                      name="(tabs)"
+                      options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                      name="login"
+                      options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                      name="register"
+                      options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                      name="welcome"
+                      options={{presentation: 'card' , headerShown: false }}
+                      // options={{headerShown: false }}
+                    />
+                    <Stack.Screen
+                      name="modal"
+                      options={{ presentation: "modal" }}
+                    />
+                  </Stack>
+                </ThemeProvider>
+              </OrderProvider>
+            </ProductProvider>
           </CollectionProvider>
         </ClientStoreProvider>
-        </CartProvider>
-      </AuthProvider>
-  )
+      </CartProvider>
+    </AuthProvider>
+  );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

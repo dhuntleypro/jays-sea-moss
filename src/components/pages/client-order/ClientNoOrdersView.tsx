@@ -12,7 +12,7 @@ const NoOrdersView = () => {
     <View style={styles.container}>
         {/* <Stack.Screen options={{headerShown: false}}/> */}
       <Image
-        source={require('../../../../assets/images/orderImage.png')}
+        source={require('../../../../src/assets/images/orderImage.png')}
         
         style={styles.image}
       />

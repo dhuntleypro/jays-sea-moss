@@ -4,10 +4,11 @@ import React, { FC, useContext, useEffect, useState } from 'react';
 import { StripeProvider, usePlatformPay, PlatformPayButton, PlatformPay } from '@stripe/stripe-react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { CartContext } from '@/contexts/CartContext';
-import { stripeConverter } from '@/hooks/stripeConverter';
+// import { stripeConverter } from '@/hooks/stripeConverter';
 import { CONSTANTS } from '@/utils/constants';
 import { createPaymentIntent } from '@/api/paymentApi';
 import { useClientStore } from '@/contexts/ClientStoreContext';
+import { stripeConverter } from '@/hooks/stripeConverter';
 
 interface PaymentPayScreenProps {
   goBack?: () => void;
@@ -20,8 +21,8 @@ export const PaymentPayScreen: FC<PaymentPayScreenProps> = (props) => {
   const [ready, setReady] = useState(false);
   const [clientSecret, setClientSecret] = useState('');
   const { isPlatformPaySupported, confirmPlatformPayPayment } = usePlatformPay();
-  const { carts } = useContext(CartContext);
   const { store } = useClientStore();
+  const { carts, totalSum, totalShipping, totalTax, grandTotal, quantity, deleteItemFromCart, clearData, decreaseFromCart} = useContext(CartContext)
 
   useFocusEffect(
     React.useCallback(() => {
@@ -105,7 +106,9 @@ export const PaymentPayScreen: FC<PaymentPayScreenProps> = (props) => {
   };
 
   return (
+    <View>
     <View style={styles.container}>
+
       <StripeProvider
         publishableKey={props.publishableKey}
         merchantIdentifier={CONSTANTS.merchant_id}
@@ -115,10 +118,13 @@ export const PaymentPayScreen: FC<PaymentPayScreenProps> = (props) => {
           disabled={!ready}
           style={styles.payButton}
           borderRadius={4}
-          type={PlatformPay.ButtonType.AddMoney}
+          type={PlatformPay.ButtonType.Buy}
         />
       </StripeProvider>
-    </View>
+
+
+      </View>
+      </View>
   );
 };
 
