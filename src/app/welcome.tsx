@@ -1,16 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import WelcomePageTwo from '@/components/pages/welcome/WelcomePageTwo'
-import WelcomePageOne from '@/components/pages/welcome/WelcomePageOne'
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import WelcomePageTwo from '@/components/pages/welcome/WelcomePageTwo';
 
-const welcome = () => {
+const Welcome = () => {
   return (
-    // <Text>yooo</Text>
-    <WelcomePageTwo />
-    // <WelcomePageOne />
-  )
-}
+    <View style={styles.container}>
+      <WelcomePageTwo />
+    </View>
+  );
+};
 
-export default welcome
+export default Welcome;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+});
