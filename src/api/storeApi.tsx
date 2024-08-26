@@ -38,11 +38,12 @@ export const getStoreAttributes = async (): Promise<string[]> => {
 
 export const getStore = async (id: string) => {
   try {
-    console.log('Fetching store...');
     const response = await storesApi.get(`/store`, {
       params: { id },
     });
     const store = response.data;
+    console.log('Store Fetched !!');
+
     return store ? store : null;
   } catch (error) {
     console.error('Error fetching store:', error);

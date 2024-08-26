@@ -11,8 +11,9 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { CartContext } from "@/contexts/CartContext";
-import { useClientProduct } from "@/contexts/ProductContext";
+// import { useClientProduct } from "@/contexts/ClientProductContext";
 import { ProductModelProps, SAMPLE_PRODUCT } from "@/models/ProductModelProps";
+import { useClientProduct } from "@/contexts/ClientProductContext";
 
 const { width } = Dimensions.get("window");
 
@@ -341,7 +342,7 @@ export default ProductDetailsPageVTwo;
 // } from 'react-native';
 // import { Ionicons } from '@expo/vector-icons';
 // import { Link } from 'expo-router';
-// import { useClientProduct } from '@/contexts/ProductContext';
+// import { useClientProduct } from '@/contexts/ClientProductContext';
 
 // const { width } = Dimensions.get('window');
 

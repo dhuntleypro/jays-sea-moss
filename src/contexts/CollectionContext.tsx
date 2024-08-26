@@ -4,8 +4,7 @@ import { getCollections, postCollection, updateCollection, deleteCollection } fr
 import { useAuth } from "./AuthContext";
 import { Alert } from "react-native";
 import { router } from "expo-router";
-import MyAlert from "@/components/library/interfaces/MyAlert";
-import { CONSTANTS } from "@/utils/constants";
+// import MyAlert from "@/components/library/interfaces/MyAlert";
 
 interface CollectionContextProps {
   collections: CollectionModelProps[];
@@ -29,6 +28,7 @@ export const useClientCollection = () => {
   return context;
 };
 
+
 export const CollectionProvider = ({ children }: { children: ReactNode }) => {
   const { authState } = useAuth();
   const [collections, setCollections] = useState<CollectionModelProps[]>([]);
@@ -36,11 +36,6 @@ export const CollectionProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (authState?.token) {
-      getClientCollections(); // Initial load of collections
-    }
-  }, [authState?.token]);
 
   const addCollection = async (collection: CollectionModelProps) => {
     if (!authState?.user) return;
@@ -62,12 +57,12 @@ export const CollectionProvider = ({ children }: { children: ReactNode }) => {
       console.error("Failed to add collection:", error.response?.data );
       
 
-      <MyAlert
-      title="Collection not Created"
-      message="You are missing information. Please update your store."
-      onCancelPress={() => console.log("Cancel Pressed")}
-      onUpdatePress={() => router.push('/store')}
-      />   
+      // <MyAlert
+      // title="Collection not Created"
+      // message="You are missing information. Please update your store."
+      // onCancelPress={() => console.log("Cancel Pressed")}
+      // onUpdatePress={() => router.push('/store')}
+      // />   
       setError(error.response?.data || "Failed to add collection. Please try again later.");
     } finally {
       setIsLoading(false);
@@ -107,13 +102,13 @@ export const CollectionProvider = ({ children }: { children: ReactNode }) => {
     setError(null);
     try {
       const email = authState.user.email || '';
-      const store_owner_id = CONSTANTS.store_id // authState.user.store_owner_id || '';
+      const store_owner_id = authState.user.store_owner_id || '';
 
       const response = await getCollections(store_owner_id, email);
       const fetchedCollections = response.data;
       setCollections(fetchedCollections);
     } catch (error: any) {
-      console.error("Failed to fetch collections:", error.response?.data?.message || error.message);
+      console.error("Failed to fetch client collections:", error.response?.data?.message || error.message);
       setError(error.response?.data?.message || "Failed to fetch collections. Please try again later.");
     } finally {
       setIsLoading(false);
@@ -144,97 +139,3 @@ export const CollectionProvider = ({ children }: { children: ReactNode }) => {
 };
 
 
-
-
-
-// import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
-// import { CollectionModelProps } from "../models/CollectionModelProps";
-// import { getCollections } from "../api/collectionsApi";
-// import { CONSTANTS } from "@/utils/constants";
-// import { useAuth } from "./AuthContext";
-
-// interface CollectionContextProps {
-//   collections: CollectionModelProps[];
-//   addCollection: (collection: CollectionModelProps) => void;
-//   removeCollection: (collectionId: string) => void;
-//   getClientCollections: () => void;
-//   selectedCollection: CollectionModelProps | null;
-//   selectCollection: (collection: CollectionModelProps) => void;
-//   isLoading: boolean;
-//   error: string | null;
-// }
-
-// const CollectionContext = createContext<CollectionContextProps | undefined>(undefined);
-
-// export const useClientCollection = () => {
-//   const context = useContext(CollectionContext);
-//   if (!context) {
-//     throw new Error("useClientCollection must be used within an CollectionProvider");
-//   }
-//   return context;
-// };
-
-// export const CollectionProvider = ({ children }: { children: ReactNode }) => {
-//   const { authState } = useAuth(); // Access authState from the AuthContext
-//   const [collections, setCollections] = useState<CollectionModelProps[]>([]);
-//   const [selectedCollection, setSelectedCollection] = useState<CollectionModelProps | null>(null);
-//   const [isLoading, setIsLoading] = useState<boolean>(false);
-//   const [error, setError] = useState<string | null>(null);
-
-//   useEffect(() => {
-//     if (authState?.token) {
-//       getClientCollections(); // Initial load of collections
-//     }
-//   }, [authState?.token]);
-
-//   const addCollection = (collection: CollectionModelProps) => {
-//     setCollections((prevCollections) => [...prevCollections, collection]);
-  
-  
-//   };
-
-//   const removeCollection = (collectionId: string) => {
-//     setCollections((prevCollections) => prevCollections.filter(collection => collection.id !== collectionId));
-//   };
-
-//   const getClientCollections = async () => {
-//     if (!authState) return;
-
-//     setIsLoading(true);
-//     setError(null);
-//     try {
-//       const email = authState?.user?.email || '';
-//       const store_owner_id = authState?.user?.store_owner_id || '';
-
-//       const response = await getCollections(store_owner_id, email);
-//       const fetchedCollections = response.data; // Extract the data from the Axios response
-//       setCollections(fetchedCollections);
-//     } catch (error: any) {
-//       console.error("Failed to fetch collections:", error.response?.data?.message || error.message);
-//       setError(error.response?.data?.message || "Failed to fetch collections. Please try again later.");
-//     } finally {
-//       setIsLoading(false);
-//     }
-//   };
-
-//   const selectCollection = (collection: CollectionModelProps) => {
-//     setSelectedCollection(collection);
-//   };
-
-//   return (
-//     <CollectionContext.Provider 
-//       value={{ 
-//         collections, 
-//         addCollection, 
-//         removeCollection, 
-//         getClientCollections, 
-//         selectedCollection, 
-//         selectCollection, 
-//         isLoading, 
-//         error 
-//       }}
-//     >
-//       {children}
-//     </CollectionContext.Provider>
-//   );
-// };

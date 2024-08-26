@@ -4,7 +4,7 @@ import { getOrders, postOrder, updateOrder, deleteOrder } from "../api/ordersApi
 import { useAuth } from "./AuthContext";
 import { Alert } from "react-native";
 import { router } from "expo-router";
-import MyAlert from "@/components/library/interfaces/MyAlert";
+// import MyAlert from "@/components/library/interfaces/MyAlert";
 
 interface OrderContextProps {
   orders: OrderModelProps[];
@@ -61,12 +61,12 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
       console.error("Failed to add order:", error.response?.data );
       
 
-      <MyAlert
-      title="Order not Created"
-      message="You are missing information. Please update your store."
-      onCancelPress={() => console.log("Cancel Pressed")}
-      onUpdatePress={() => router.push('/store')}
-      />   
+      // <MyAlert
+      // title="Order not Created"
+      // message="You are missing information. Please update your store."
+      // onCancelPress={() => console.log("Cancel Pressed")}
+      // onUpdatePress={() => router.push('/store')}
+      // />   
       setError(error.response?.data || "Failed to add order. Please try again later.");
     } finally {
       setIsLoading(false);
@@ -112,7 +112,7 @@ export const OrderProvider = ({ children }: { children: ReactNode }) => {
       const fetchedOrders = response.data;
       setOrders(fetchedOrders);
     } catch (error: any) {
-      console.error("Failed to fetch orders:", error.response?.data?.message || error.message);
+      console.error("Failed to fetch client orders:", error.response?.data?.message || error.message);
       setError(error.response?.data?.message || "Failed to fetch orders. Please try again later.");
     } finally {
       setIsLoading(false);

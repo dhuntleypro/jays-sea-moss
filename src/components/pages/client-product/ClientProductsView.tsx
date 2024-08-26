@@ -3,7 +3,7 @@ import { SafeAreaView, View, TextInput, TouchableOpacity, Text, FlatList, StyleS
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { useAuth } from '@/contexts/AuthContext';
 import { COLORS, SIZES } from '@/utils/theme';
-import { useClientProduct } from '@/contexts/ProductContext';
+import { useClientProduct } from '@/contexts/ClientProductContext';
 // import ProductCard from '@/components/ProductCard';  // Adjust the import path as necessary
 import { Link, Stack } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';

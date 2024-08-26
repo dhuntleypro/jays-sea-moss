@@ -5,7 +5,7 @@ import { COLORS, SIZES } from "@/utils/theme";
 import convertToCurrency from "@/hooks/convertToCurrency";
 import { ProductModelProps } from "@/models/ProductModelProps";
 import { Link } from "expo-router";
-import { useClientProduct } from "@/contexts/ProductContext";
+import { useClientProduct } from "@/contexts/ClientProductContext";
 import { Ionicons } from "@expo/vector-icons";
 
 const ClientProductCard: React.FC<{ product: ProductModelProps }> = ({
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
 // import convertToCurrency from "@/hooks/convertToCurrency";
 // import { ProductModelProps } from "@/models/ProductModelProps";
 // import { Link } from "expo-router";
-// import { useClientProduct } from "@/contexts/ProductContext";
+// import { useClientProduct } from "@/contexts/ClientProductContext";
 // import { Ionicons } from "@expo/vector-icons";
 
 // const ClientProductCard: React.FC<{ product: ProductModelProps }> = ({
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
 // import convertToCurrency from '@/hooks/convertToCurrency';
 // import { ProductModelProps } from '@/models/ProductModelProps';
 // import { Link } from 'expo-router';
-// import { useClientProduct } from '@/contexts/ProductContext';
+// import { useClientProduct } from '@/contexts/ClientProductContext';
 
 // const ClientProductCard: React.FC<ProductModelProps> = (product) => {
 //   const { selectProduct } = useClientProduct();

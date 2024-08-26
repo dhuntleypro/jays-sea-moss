@@ -4,6 +4,7 @@ import { COLORS, SIZES } from '@/utils/theme'
 import { Ionicons } from "@expo/vector-icons"
 import { Link } from 'expo-router'
 import { useClientStore } from '@/contexts/ClientStoreContext'
+import { ROUTES } from '@/utils/Routes'
 // import EditScreenInfo from '../EditScreenInfo'
 
 const SectionHeader = () => {
@@ -13,9 +14,7 @@ const SectionHeader = () => {
     <View style={styles.container}>
         <View style={styles.header}>
             <Text style={styles.headerTitle}>{store?.store_type ?? ""}</Text>
-            {/* <EditScreenInfo path="app/(tabs)/products.tsx" /> */}
-
-            <Link href={'/products'} asChild>
+            <Link href={ROUTES.products as never} asChild>
             <TouchableOpacity>
             {/* <TouchableOpacity onPress={() => navigation.navigate("ProductDetails", { item })}> */}
                     <Ionicons name='grid' size={SIZES.xLarge} color={COLORS.primary}/>
@@ -45,3 +44,5 @@ const styles = StyleSheet.create({
         fontSize: SIZES.xLarge -2
     }
 })
+
+

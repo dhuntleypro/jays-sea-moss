@@ -15,7 +15,7 @@ import { useAuth } from '../../../contexts/AuthContext'
 import { CONSTANTS } from '@/utils/constants'
 import useFetchObjects from '@/hooks/useFetchObjects'
 import { ProductModelProps } from '@/models/ProductModelProps'
-import { useClientProduct } from '@/contexts/ProductContext'
+import { useClientProduct } from '@/contexts/ClientProductContext'
 import { useClientStore } from '@/contexts/ClientStoreContext'
 // import { ProductModelProps } from '@/app/models/ProductModelProps'
 

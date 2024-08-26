@@ -14,6 +14,8 @@ export const CONSTANTS = {
     holderCarouselImageTwo: 'https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/seaweed.jpg', 
     holderCarouselImageThree:'https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/waterfall.jpg', 
     holderImage: 'https://appsformankind-assets.s3.amazonaws.com/Store/Jays_Sea_Moss/seamoss.jpg', 
+    
+    mankind_store_id: "",
     store_id:  "P5V8A9ZE",  
     merchant_id: `merchant.com.dhuntleyinc.DevelopingAppsForMankind`,
     publishableKeyLive: "pk_live_51NVCh3JEHBX7gOQA7dW8kmXYPiToufrHpDzRZQ1vhxtUoNXrYXPWtMpELdWetWJhm6Wohk8PXc2ZF1UGfaBOFJl100GZWU6atY",

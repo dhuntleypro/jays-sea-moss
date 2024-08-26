@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useClientProduct } from '@/contexts/ProductContext';
+import { useClientProduct } from '@/contexts/ClientProductContext';
 import { COLORS, SIZES } from '@/utils/theme';
 import { ProductModelProps } from '@/models/ProductModelProps';
 import { generateUUID } from '@/hooks/generateUUID';

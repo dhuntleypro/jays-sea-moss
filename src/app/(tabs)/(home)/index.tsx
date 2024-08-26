@@ -2,8 +2,12 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import HomeDesignOne from '@/components/library/home/HomeDesignOne'
 import HomeDesignTwo from '@/components/library/home/HomeDesignTwo'
+import { useMankindProduct } from '@/contexts/MankindProductContext'
 
 const index = () => {
+
+
+  
   return (
     // <HomeDesignOne />
     <HomeDesignTwo />

@@ -13,15 +13,19 @@ const SettingsPage = () => {
 
   const { authState , onLogout } = useAuth()
 
-  const handleLogOut = () => {
-    // Trigger phone dialer with customer's phone number
-    onLogout
-
-    // Remove user
-    // Remove
-    router.replace(`/login`)
+  const handleLogOut = async () => {
+    if (onLogout) {
+      try {
+        await onLogout();
+        router.replace('/welcome'); // Navigate to the welcome screen after logout
+      } catch (error) {
+        console.error('Logout failed:', error);
+      }
+    } else {
+      console.error('Logout function is not defined');
+    }
   };
-  
+
   return (
     <View style={styles.container}>
       {/* <Stack.Screen options={{headerShown: false}} /> */}

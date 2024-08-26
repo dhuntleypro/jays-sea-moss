@@ -11,8 +11,9 @@ import { useAuth } from "../../../../contexts/AuthContext";
 import { COLORS, SIZES } from "@/utils/theme";
 import ProductCardView from "../../../library/card/ProductCardView";
 import { ProductModelProps } from "@/models/ProductModelProps";
-import { useClientProduct } from "@/contexts/ProductContext";
+// import { useClientProduct } from "@/contexts/ClientProductContext";
 import { CONSTANTS } from "@/utils/constants";
+import { useClientProduct } from "@/contexts/ClientProductContext";
 
 export interface ClientStateProps {
   client: boolean;

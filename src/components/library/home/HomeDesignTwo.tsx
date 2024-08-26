@@ -16,6 +16,8 @@ import ProductRow from "@/components/other/cards/other/ProductRow";
 import Carousel from "@/components/pages/home/Carousel";
 import SectionHeader from "@/components/pages/home/Headings";
 import { AWS_HOLDER_IMAGE } from "@/utils/api";
+import { router } from "expo-router";
+import { ROUTES } from "@/utils/Routes";
 
 const { width } = Dimensions.get("window");
 
@@ -41,7 +43,7 @@ const HomeDesignTwo: React.FC = () => {
   />
   <Text style={styles.name}>JACOB JAMES</Text>
   <Text style={styles.title}>Founder of {store?.store_name ?? ""} Co.</Text>
-  <TouchableOpacity style={styles.button}>
+  <TouchableOpacity style={styles.button} onPress={() => router.push(ROUTES.products as never)}>
     <Text style={styles.buttonText}>EXPLORE PRODUCTS</Text>
   </TouchableOpacity>
   <Text style={{padding: 10, fontSize: 40, paddingBottom: 30}}> 🌿</Text>

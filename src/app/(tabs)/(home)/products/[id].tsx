@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { FC } from 'react'
 import ProductDetailsPage from '@/components/pages/product-details/ProductDetailsPageVOne'
 import ProductDetailsPageVOne from '@/components/pages/product-details/ProductDetailsPageVOne'
 import ProductDetailsPageVTwo from '@/components/pages/product-details/ProductDetailsPageVTwo'
-// import ProductDetailsPage from '@/components/pages/client-product/ClientProductDetails'
+import { ProductModelProps } from '@/models/ProductModelProps'
+// import ProductDetailsPageVTwo from '@/components/pages/product-details/ProductDetailsPageVTwo'
 
-const ProductDetailsScrenn = () => {
+const ProductDetailsScrenn : FC<ProductModelProps> = (props) => {
   return (
-    <ProductDetailsPageVOne />
-    // <ProductDetailxsPageVTwo />
+    // <ProductDetailsPageVOne />
+    <ProductDetailsPageVTwo {...props}/>
   )
 }
 

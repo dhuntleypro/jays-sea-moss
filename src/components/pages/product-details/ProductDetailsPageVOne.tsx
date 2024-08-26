@@ -6,7 +6,7 @@ import { COLORS, SIZES } from '@/utils/theme';
 import convertToCurrency from '@/hooks/convertToCurrency';
 import { Ionicons } from '@expo/vector-icons';
 import { MotiView } from 'moti';
-import { useClientProduct } from '@/contexts/ProductContext';
+import { useClientProduct } from '@/contexts/ClientProductContext';
 
 const ProductDetailsPageVOne = () => {
   const { id } = useLocalSearchParams<{ id: string }>();

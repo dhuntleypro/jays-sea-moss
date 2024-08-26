@@ -8,7 +8,8 @@ import { CONSTANTS } from '@/utils/constants';
 import { Link } from 'expo-router';
 import convertToCurrency from '@/hooks/convertToCurrency';
 import { ProductModelProps } from '@/models/ProductModelProps';
-import { useClientProduct } from '@/contexts/ProductContext';
+import { useClientProduct } from '@/contexts/ClientProductContext';
+// import { useClientProduct } from '@/contexts/ClientProductContext';
 
 const { width } = Dimensions.get('window');
 

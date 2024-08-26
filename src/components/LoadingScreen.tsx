@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { useClientStore } from '@/contexts/ClientStoreContext';
 import { useClientCollection } from '@/contexts/CollectionContext';
-import { useClientProduct } from '@/contexts/ProductContext';
+import { useClientProduct } from '@/contexts/ClientProductContext';
 
 export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
   const { getClientStore } = useClientStore(); // Assumes fetchStoreData is a method that fetches the store data

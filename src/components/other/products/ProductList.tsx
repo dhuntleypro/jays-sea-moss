@@ -19,8 +19,8 @@ import { getProducts } from "../../../api/productsApi";
 // import { ProductModelProps } from "@/app/models/ProductModelProps";
 import useFetchObjects from "@/hooks/useFetchObjects";
 import { ProductModelProps } from "@/models/ProductModelProps";
-import { useClientProduct } from "@/contexts/ProductContext";
-// import { useProduct } from "@/contexts/ProductContext";
+import { useClientProduct } from "@/contexts/ClientProductContext";
+// import { useProduct } from "@/contexts/ClientProductContext";
 // import { getClientProducts } from "../../api/productsApi";
 
 // const ProductList = () => {

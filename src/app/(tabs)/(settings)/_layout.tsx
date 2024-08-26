@@ -9,15 +9,44 @@ const ProductsLayout = () => {
     <Stack.Screen 
     name='settings'
     options={{
+      title: 'Settings',
+      headerShown: false
       
     }}
     />
+
+    
+
     <Stack.Screen 
-    name='[id]'
+    name='appearance'
     options={{
 
     }}
     />
+      <Stack.Screen 
+    name='faq'
+    options={{
+
+    }}
+    />
+    
+
+    <Stack.Screen 
+    name='profile'
+    options={{
+      headerShown: false
+
+
+    }}
+    />
+    
+
+
+
+
+
+
+
    </Stack>
   )
 }

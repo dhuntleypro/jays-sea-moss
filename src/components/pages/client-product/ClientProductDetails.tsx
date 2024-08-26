@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button, Alert, ScrollView, Linking } from 'react-native';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useClientProduct } from '@/contexts/ProductContext';
+import { useClientProduct } from '@/contexts/ClientProductContext';
 import { COLORS, SIZES } from '@/utils/theme';
 import { ProductModelProps } from '@/models/ProductModelProps';
 
