@@ -1,6 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import CustomLink from '../CustomLink'
+import CustomLink from '../library/CustomLink'
+// import CustomLink from '../CustomLink'
 
 export default function TopHeader() {
   return (

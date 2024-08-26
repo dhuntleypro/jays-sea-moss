@@ -21,6 +21,7 @@ import { StoreModelProps } from "@/models/StoreModelProps";
 import { getStore } from "@/api/storeApi";
 import UserLoginTextFields from "@/components/library/views/UserLoginTextFields";
 import UserRegisterTextFields from "@/components/library/views/UserRegisterTextFields";
+import { useClientStore } from "@/contexts/ClientStoreContext";
 
 const { width } = Dimensions.get("window");
 
@@ -34,9 +35,12 @@ const LoginComponentTwo = () => {
 
   const [activeTabIsLogin, setActiveTabIsLogin] = useState(true);
   const { onLogin, onRegister, onLogout, authState } = useAuth();
-  const { data: store } = useFetchObject<StoreModelProps>(() =>
-    getStore(CONSTANTS.store_id)
-  );
+  // const { data: store } = useFetchObject<StoreModelProps>(() =>
+  //   getStore(CONSTANTS.store_id)
+  // );
+
+  const { store } = useClientStore()
+
 
   const showAlert = (message: string) =>
     Alert.alert("Error", message, [{ text: "OK" }]);

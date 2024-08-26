@@ -33,9 +33,9 @@ const UserRegisterTextFields = () => {
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   
     const [activeTabIsLogin, setActiveTabIsLogin] = useState(false);
-    const { data: store } = useFetchObject<StoreModelProps>(() =>
-      getStore(CONSTANTS.store_id)
-    );
+    // const { data: store } = useFetchObject<StoreModelProps>(() =>
+    //   getStore(CONSTANTS.store_id)
+    // );
     const { onLogin, onRegister, onLogout, authState } = useAuth();
 
 

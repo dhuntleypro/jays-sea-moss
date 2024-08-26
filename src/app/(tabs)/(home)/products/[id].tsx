@@ -7,8 +7,8 @@ import ProductDetailsPageVTwo from '@/components/pages/product-details/ProductDe
 
 const ProductDetailsScrenn = () => {
   return (
-    // <ProductDetailsPageVOne />
-    <ProductDetailsPageVTwo />
+    <ProductDetailsPageVOne />
+    // <ProductDetailxsPageVTwo />
   )
 }
 

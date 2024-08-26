@@ -7,11 +7,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash7.jpg",
-      "resizeMode": "cover",
-      "backgroundColor": "#ffffff"
-    },
+   
     "ios": {
       "supportsTablet": true
     },

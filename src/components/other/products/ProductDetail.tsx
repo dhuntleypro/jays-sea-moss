@@ -95,7 +95,7 @@ const ProductDetails: FC<ProductModelProps> = (item) => {
         </TouchableOpacity>
       </View>
 
-      <Image style={styles.image} source={{ uri: item.image ? item.image : CONSTANTS.holderImage }} />
+      <Image style={styles.image} source={{ uri: item.image ? item.image : CONSTANTS.holderImageProductCard }} />
 
       <View style={styles.details}>
         <View style={styles.titleRow}>

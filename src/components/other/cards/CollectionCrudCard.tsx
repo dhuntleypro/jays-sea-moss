@@ -19,7 +19,7 @@ export const CollectionCrudCard: FC<CollectionModelProps> = (item) => {
         <TouchableOpacity style={styles.container} onPress={() => navigation.navigate("EditCollection" , { item })}>
 
             <View style={styles.image}>
-                <Image source={{uri: item.image ? item.image : CONSTANTS.holderImage }} style={styles.collectionImg} />
+                <Image source={{uri: item.image ? item.image : CONSTANTS.holderImageCollectionCard }} style={styles.collectionImg} />
             </View>
             <View style={styles.textContainer}>
                 <Text style={styles.collectionTitle}>{item.title}</Text>

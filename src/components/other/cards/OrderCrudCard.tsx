@@ -18,7 +18,7 @@ export const OrderCrudCard: FC<OrderModelProps> = (item) => {
         <TouchableOpacity style={styles.container} onPress={() => navigation.navigate("EditOrder" , { item })}>
 
             <View style={styles.image}>
-                <Image source={{uri: CONSTANTS.holderImage }} style={styles.orderImg} />
+                <Image source={{uri: CONSTANTS.holderImageOrderCard }} style={styles.orderImg} />
             </View>
             <View style={styles.textContainer}>
                 <Text style={styles.orderTitle}>{item.title}</Text>

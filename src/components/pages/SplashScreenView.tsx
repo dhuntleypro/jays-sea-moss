@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
-import FlashingImages from '../FlashingImages'
+// import FlashingImages from '../FlashingImages'
 import LoginComponentOne from './login/LoginComponentOne'
 
 const SplashScreenView = () => {

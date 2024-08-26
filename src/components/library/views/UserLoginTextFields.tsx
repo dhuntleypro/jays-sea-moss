@@ -30,7 +30,7 @@ const UserLoginTextFields = () => {
 
   const [activeTabIsLogin, setActiveTabIsLogin] = useState(true);
   const { onLogin, onRegister, onLogout, authState } = useAuth();
-  const { data: store } = useFetchObject<StoreModelProps>(() => getStore(CONSTANTS.store_id))
+  // const { data: store } = useFetchObject<StoreModelProps>(() => getStore(CONSTANTS.store_id))
 
   const showAlert = (message: string) =>
     Alert.alert("Error", message, [{ text: "OK" }]);

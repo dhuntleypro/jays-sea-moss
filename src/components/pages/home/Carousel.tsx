@@ -26,9 +26,9 @@ const Carousel: FunctionComponent = () => {
 
   const { store : mankindStore } = useClientStore()
   const storeImages: string[] = [
-    mankindStore?.images.about_object_image ?? CONSTANTS.holderImage,
-    mankindStore?.images.doubleImageHero_left_image ?? CONSTANTS.holderImage,
-    mankindStore?.images.profile_image ?? CONSTANTS.holderImage
+    mankindStore?.images.about_object_image ?? CONSTANTS.holderCarouselImageOne,
+    mankindStore?.images.doubleImageHero_left_image ?? CONSTANTS.holderCarouselImageTwo,
+    mankindStore?.images.profile_image ?? CONSTANTS.holderCarouselImageThree
   ]
 
   return (

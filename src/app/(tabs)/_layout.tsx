@@ -1,22 +1,71 @@
-import React, { useState } from 'react';
-import { Redirect } from 'expo-router';
+import React, { useState, useEffect } from 'react';
+import { router } from 'expo-router';
 import { useAuth } from '@/contexts/AuthContext';
-// import { AuthenticatedTabs } from '@/components/AuthenticatedTabs';
+import { View, Text } from 'react-native';
 import { LoadingScreen } from '@/components/LoadingScreen';
+// import WelcomePageTwo from '@/components/WelcomePageTwo';
 import AuthenticatedTabs from '@/components/AuthenticatedTabs';
-// import { AuthenticatedTabs } from './AuthenticatedTabs';
-// import { LoadingScreen } from './LoadingScreen';
+import WelcomePageTwo from '@/components/pages/welcome/WelcomePageTwo';
 
 export default function TabLayout() {
   const { authState } = useAuth();
   const [isLoaded, setIsLoaded] = useState(false);
 
+  useEffect(() => {
+    if (isLoaded) {
+      console.log("Auth State:", authState);
+      if (authState.authenticated) {
+        router.replace('/(tabs)');
+      } else {
+        router.replace('/welcome');
+      }
+    }
+  }, [isLoaded, authState.authenticated]);
+
   if (!isLoaded) {
     return <LoadingScreen onLoaded={() => setIsLoaded(true)} />;
   }
 
-  return authState?.authenticated ? <AuthenticatedTabs /> : <Redirect href="/welcome" />;
+  return authState.authenticated ? router.replace('/(tabs)'): router.replace('/welcome');
+
 }
+
+
+// import React, { useState } from 'react';
+// import { Redirect, router } from 'expo-router';
+// import { useAuth } from '@/contexts/AuthContext';
+// // import { AuthenticatedTabs } from '@/components/AuthenticatedTabs';
+// import { LoadingScreen } from '@/components/LoadingScreen';
+// import { Text, View } from 'react-native';
+// import AuthenticatedTabs from '@/components/AuthenticatedTabs';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+// import Welcome from '../welcome';
+// import WelcomePageOne from '@/components/pages/welcome/WelcomePageOne';
+// import WelcomePageTwo from '@/components/pages/welcome/WelcomePageTwo';
+// // import { AuthenticatedTabs } from './AuthenticatedTabs';
+// // import { LoadingScreen } from './LoadingScreen';
+
+// export default function TabLayout() {
+//   const { authState } = useAuth();
+//   const [isLoaded, setIsLoaded] = useState(false);
+
+//   if (!isLoaded) {
+//     return <LoadingScreen onLoaded={() => setIsLoaded(true)} />;
+//   }
+
+//   // return authState?.authenticated ? <AuthenticatedTabs /> : <Redirect href="/welcome" />;
+//   // return authState?.authenticated ? <AuthenticatedTabs /> : router.push("/welcome");
+
+//   // return <View><Text>yoooo</Text></View>
+
+  
+//   if (isLoaded) {
+//      return authState?.authenticated ? <AuthenticatedTabs /> : <WelcomePageTwo/>;
+
+
+//   }
+
+// }
 
 
 

@@ -15,13 +15,13 @@ export function LoadingScreen({ onLoaded }: { onLoaded: () => void }) {
       try {
 
         // Get Store
-        await getClientStore();
+        // await getClientStore();
 
         //  Get Store Collections
-        await getClientCollections()
+        // await getClientCollections()
 
         // Get Store Products
-        await getClientProducts()
+      /// - in context  await getClientProducts()
 
         
         setLoading(false);

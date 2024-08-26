@@ -33,7 +33,7 @@ const ProductCardView: FC<{ product: ProductModelProps }> = ({ product }) => {
             <View style={styles.imageContainer}>
               <Image 
                 style={styles.image} 
-                source={{ uri: product.image || CONSTANTS.holderImage }} 
+                source={{ uri: product.images[0]}} 
               />
             </View>
 

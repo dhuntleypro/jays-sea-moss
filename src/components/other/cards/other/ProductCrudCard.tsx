@@ -24,7 +24,7 @@ export const ProductCrudCard: FC<ProductModelProps> = (item) => {
         <TouchableOpacity style={styles.container} onPress={() => {}}>
 
             <View style={styles.image}>
-                <Image source={{uri: item.image ? item.image : CONSTANTS.holderImage}} style={styles.productImg} />
+                <Image source={{uri: item.image ? item.image : CONSTANTS.holderImageProductCard}} style={styles.productImg} />
             </View>
             <View style={styles.textContainer}>
                 <Text style={styles.productTitle}>{item.name}</Text>

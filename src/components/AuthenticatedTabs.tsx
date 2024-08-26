@@ -4,18 +4,19 @@ import { router, Tabs } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
 import Footer from '@/components/web/Footer'
 import TopHeader from '@/components/web/TopHeader'
-import Colors from '@/constants/Colors'
+// import Colors from '@/constants/Colors'
 import { useClientOnlyValue } from '@/hooks/useClientOnlyValue'
+import { COLORS } from '@/utils/theme'
 const AuthenticatedTabs = () => {
     const colorScheme = useColorScheme();
 
   return (
 <>
 
-       
-   <Tabs   screenOptions={{
+      
+   <Tabs screenOptions={{
         tabBarStyle: Platform.OS === 'web' ? { display: 'none' } : {},
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: COLORS[colorScheme ?? 'light'].tint,
         headerShown: useClientOnlyValue(false, true),
        }}>
     <Tabs.Screen 

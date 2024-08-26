@@ -17,7 +17,7 @@ export const UserCrudCard: FC<UserProps> = (item) => {
         <TouchableOpacity style={styles.container} onPress={() => navigation.navigate("EditUser" , { item })}>
 
             <View style={styles.image}>
-                <Image source={{uri: item.profile_image ? item.profile_image : CONSTANTS.holderImage }} style={styles.userImg} />
+                <Image source={{uri: item.profile_image ? item.profile_image : CONSTANTS.holderUserImage }} style={styles.userImg} />
             </View>
             <View style={styles.textContainer}>
                 <Text style={styles.userTitle}>{item.id}</Text>

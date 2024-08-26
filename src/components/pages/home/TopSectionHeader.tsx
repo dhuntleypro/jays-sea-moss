@@ -11,15 +11,17 @@ import useFetchObject from '@/hooks/useFetchObject'
 // import { StoreProps } from '@/models/StoreProps'
 import { getStore } from '@/api/storeApi'
 import { StoreModelProps } from '@/models/StoreModelProps'
+import { useClientStore } from '@/contexts/ClientStoreContext'
 // import { StoreProps } from '@/app/models/StoreProps'
 
 const TopSectionHeaderV1 = () => {
-  const { data: mankindStore } = useFetchObject<StoreModelProps>(() => getStore(CONSTANTS.store_id));
+  const { store } = useClientStore()
+  // const { data: store } = useFetchObject<StoreModelProps>(() => getStore(CONSTANTS.store_id));
   // const { data: store } = useFetchObject<StoreProps>(() => getStore(authState?.user?.id));
 
   return (
     <View style={styles.container}>
-        <Text style={styles.line1}>{mankindStore?.store_name}</Text>
+        <Text style={styles.line1}>{store?.store_name}</Text>
         <Text style={[styles.line2, { marginTop: 0, color: COLORS.black }]}>We Build Apps</Text>
     </View>
   )

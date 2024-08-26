@@ -37,7 +37,7 @@ const SettingsPage = () => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>General</Text>
           
-          <Link href={'settings/profile-information' as never} asChild>
+          <Link href={'/profile' as never} asChild>
             <TouchableOpacity style={styles.option}>
               <FontAwesome5 name="user" size={20} color="black" />
               <Text style={styles.optionText}>Profile information</Text>
@@ -54,10 +54,18 @@ const SettingsPage = () => {
           </TouchableOpacity>
           </Link> */}
 
-          <Link href={'settings/appearance' as never} asChild>
+          <Link href={'/appearance' as never} asChild>
           <TouchableOpacity style={styles.option}>
             <Ionicons name="color-palette-outline" size={20} color="black" />
             <Text style={styles.optionText}>Appearance</Text>
+            <Ionicons name="chevron-forward" size={20} color="black" />
+          </TouchableOpacity>
+          </Link>
+
+          <Link href={'/favorites' as never} asChild>
+          <TouchableOpacity style={styles.option}>
+            <Ionicons name="color-palette-outline" size={20} color="black" />
+            <Text style={styles.optionText}>Favorites</Text>
             <Ionicons name="chevron-forward" size={20} color="black" />
           </TouchableOpacity>
           </Link>
@@ -74,7 +82,7 @@ const SettingsPage = () => {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Support</Text>
-          <Link href={'settings/report-an-issue' as never} asChild>
+          <Link href={'/report-an-issue' as never} asChild>
           <TouchableOpacity style={styles.option}>
             <Ionicons name="alert-circle-outline" size={20} color="black" />
             <Text style={styles.optionText}>Report an issue</Text>
@@ -82,7 +90,7 @@ const SettingsPage = () => {
           </TouchableOpacity>
           </Link>
 
-          <Link href={'settings/faq' as never} asChild>
+          <Link href={'/faq' as never} asChild>
           <TouchableOpacity style={styles.option}>
             <Ionicons name="help-circle-outline" size={20} color="black" />
             <Text style={styles.optionText}>FAQ</Text>

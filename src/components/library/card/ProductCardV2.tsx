@@ -36,7 +36,7 @@ import convertToCurrency from '@/hooks/convertToCurrency';
       <View style={styles.container}>
         {/* Image */}
         <View style={styles.imageContainer}>
-          <Image style={styles.image} source={{ uri: item.image ? item.image : CONSTANTS.holderImage }} />
+          <Image style={styles.image} source={{ uri: item.image ? item.image : CONSTANTS.holderImageProductCard }} />
         </View>
 
         {/* Details */}

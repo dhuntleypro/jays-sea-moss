@@ -1,8 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CustomLink from '../../CustomLink'
+// import CustomLink from '../../CustomLink'
 import Head from 'expo-router/head'
-import SEOHeader from '../../SEOHeader'
+import SEOHeader from '@/components/library/SEOHeader'
+import CustomLink from '@/components/library/CustomLink'
+// import SEOHeader from '../../SEOHeader'
 
 const SettingsPageWeb = () => {
   return (
