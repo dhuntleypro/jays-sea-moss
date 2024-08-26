@@ -72,7 +72,7 @@ const AuthenticatedTabs = () => {
       name='(settings)'
       options={{
         // href:null,
-        headerShown: false,
+        // headerShown: false,
         tabBarLabel: 'Settings',
         tabBarIcon : ({size, color }) => <Ionicons name='settings-outline' size={size} color={color} />
       }}

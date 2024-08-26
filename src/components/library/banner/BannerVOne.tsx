@@ -2,6 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { COLORS } from '@/utils/theme'
 import { Ionicons } from '@expo/vector-icons';
+import { router } from 'expo-router';
 
 {/* Banner Section */}
 
@@ -11,10 +12,10 @@ const BannerVOne = () => {
         <View style={styles.bannerSection}>
           <Text style={styles.bannerTitle}>Customize Your Experience</Text>
           <Text style={styles.bannerSubtitle}>
-            Manage your preferences, update account settings, and explore options to tailor your experience to your needs.
+          Manage your preferences, update account settings, and explore options to tailor your experience to your needs, even things like dark mode.
           </Text>
-          <TouchableOpacity style={{ flexDirection: 'row',}}>
-          <Text style={styles.editPreferences}>Update Settings</Text>
+          <TouchableOpacity style={{ flexDirection: 'row',}} onPress={() => router.push('/appearance')}>
+          <Text style={styles.editPreferences}>Dark Mode</Text>
           <Ionicons name="arrow-forward" size={15} color="white" style={styles.arrow} />
           </TouchableOpacity>
         </View>

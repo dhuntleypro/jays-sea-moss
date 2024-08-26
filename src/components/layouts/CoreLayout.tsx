@@ -16,6 +16,9 @@ const CoreLayout = () => {
       >
         <Stack.Screen name="(tabs)" options={{}} />
         <Stack.Screen name="modal" options={{ presentation: "modal" }} />
+        <Stack.Screen name="privacy-policy" options={{ presentation: "modal" }} />
+        <Stack.Screen name="terms-of-use" options={{ presentation: "modal" }} />
+        <Stack.Screen name="cookies-policy" options={{ presentation: "modal" }} />
       </Stack>
     );
   } else {

@@ -84,7 +84,7 @@ const SettingsPage = () => {
 
         </View>
 
-        <View style={styles.section}>
+        {/* <View style={styles.section}>
           <Text style={styles.sectionTitle}>Support</Text>
           <Link href={'/report-an-issue' as never} asChild>
           <TouchableOpacity style={styles.option}>
@@ -97,13 +97,36 @@ const SettingsPage = () => {
           <Link href={'/faq' as never} asChild>
           <TouchableOpacity style={styles.option}>
             <Ionicons name="help-circle-outline" size={20} color="black" />
-            <Text style={styles.optionText}>FAQ</Text>
+            <Text style={styles.optionText}>term</Text>
+            <Ionicons name="chevron-forward" size={20} color="black" />
+          </TouchableOpacity>
+
+          </Link>
+
+        </View> */}
+
+
+
+<View style={styles.section}>
+          <Text style={styles.sectionTitle}>Application</Text>
+          <Link href={'/privacy-policy'} asChild>
+          <TouchableOpacity style={styles.option}>
+            <Ionicons name="alert-circle-outline" size={20} color="black" />
+            <Text style={styles.optionText}>Privacy Policy</Text>
             <Ionicons name="chevron-forward" size={20} color="black" />
           </TouchableOpacity>
           </Link>
 
-        </View>
+          <Link href={'/terms-of-use' as never} asChild>
+          <TouchableOpacity style={styles.option}>
+            <Ionicons name="help-circle-outline" size={20} color="black" />
+            <Text style={styles.optionText}>Terms of use</Text>
+            <Ionicons name="chevron-forward" size={20} color="black" />
+          </TouchableOpacity>
+          
+          </Link>
 
+        </View>
         <MyButton
         title="Log out"
         onPress={handleLogOut}

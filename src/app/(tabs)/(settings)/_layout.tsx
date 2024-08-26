@@ -10,7 +10,7 @@ const ProductsLayout = () => {
     name='settings'
     options={{
       title: 'Settings',
-      headerShown: false
+      // headerShown: false
       
     }}
     />
