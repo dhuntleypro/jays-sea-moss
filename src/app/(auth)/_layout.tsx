@@ -3,38 +3,15 @@ import React, { useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { Stack } from "expo-router";
 import { useMankindProduct } from "@/contexts/MankindProductContext";
+import AuthLayout from "@/components/layouts/AuthLayout";
 
-const StackLayout = () => {
-  const { authState } = useAuth();
+const LayoutForAuthLayout = () => {
   return (
-      <Stack
-        screenOptions={{
-          headerShown: false, // Hide headers globally
-        }}
-      >
-        <Stack.Screen
-          name="welcome"
-          options={{
-            presentation: "fullScreenModal", // Full-screen modal presentation
-          }}
-        />
-        <Stack.Screen
-          name="login"
-          options={{
-            presentation: "fullScreenModal", // Full-screen modal presentation
-          }}
-        />
-        <Stack.Screen
-          name="register"
-          options={{
-            presentation: "fullScreenModal", // Full-screen modal presentation
-          }}
-        />
-      </Stack>
-    );
+    <AuthLayout />
+  )
 
 };
 
-export default StackLayout;
+export default LayoutForAuthLayout;
 
 const styles = StyleSheet.create({});

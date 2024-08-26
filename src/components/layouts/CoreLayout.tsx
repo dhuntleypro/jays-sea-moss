@@ -4,7 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { Stack } from "expo-router";
 import { useMankindProduct } from "@/contexts/MankindProductContext";
 
-const StackLayout = () => {
+const CoreLayout = () => {
   const { authState } = useAuth();
 
   if (authState.authenticated) {
@@ -37,6 +37,6 @@ const StackLayout = () => {
   }
 };
 
-export default StackLayout;
+export default CoreLayout;
 
 const styles = StyleSheet.create({});
