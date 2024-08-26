@@ -95,7 +95,7 @@ export const ProductDetailsPageVTwo: FC<ProductModelProps> = () => {
             </Text>
           </View>
 
-          {/* Variants */}
+          {/* Variants
           <View style={styles.variantsContainer}>
             <Text style={styles.sectionTitle}>Available Variants:</Text>
             <View style={styles.variantItem}>
@@ -134,7 +134,7 @@ export const ProductDetailsPageVTwo: FC<ProductModelProps> = () => {
                 <Text style={styles.originalPrice}>$129.99</Text>
               </Text>
             </View>
-          </View>
+          </View> */}
 
           {/* Reviews */}
           <View style={styles.reviewsContainer}>

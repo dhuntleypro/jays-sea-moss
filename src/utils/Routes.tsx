@@ -1,4 +1,4 @@
-import register from "@/app/register";
+import register from "@/app/(auth)/register";
 
 export const ROUTES = {
     onboarding_Page: "/onboarding",

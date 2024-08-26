@@ -34,7 +34,7 @@ const ProductsLayout = () => {
     <Stack.Screen 
     name='profile'
     options={{
-      headerShown: false
+      // headerShown: false
 
 
     }}

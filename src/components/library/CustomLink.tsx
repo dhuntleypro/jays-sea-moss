@@ -13,14 +13,14 @@ type CustomLinkProps = {
 export const CustomLink: React.FC<CustomLinkProps> = ({ url, title, style, replace, asChild }) => {
   if (asChild) {
     return (
-      <Link href={url} replace={replace}>
+      <Link href={url as never} replace={replace}>
         <Text style={style}>{title}</Text>
       </Link>
     );
   }
 
   return (
-    <Link href={url} replace={replace} asChild>
+    <Link href={url as never} replace={replace} asChild>
       <Pressable>
         <Text style={style}>{title}</Text>
       </Pressable>

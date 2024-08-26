@@ -7,7 +7,7 @@ import { useClientOrder } from '@/contexts/OrderContext';
 // import OrderCard from '@/components/OrderCard';  // Adjust the import path as necessary
 import { Link, Stack } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Colors from '@/constants/Colors';
+// import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { OrderModelProps } from '@/models/OrderModelProps';
 import ClientOrderCard from '@/components/pages/client-order/ClientOrderCard';
@@ -48,7 +48,7 @@ const ClientOrdersView = () => {
                   <FontAwesome
                     name="plus"
                     size={30}
-                    color={Colors[colorScheme ?? 'light'].text}
+                    color={COLORS[colorScheme ?? 'light'].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}

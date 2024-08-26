@@ -6,7 +6,7 @@ import { COLORS, SIZES } from '@/utils/theme';
 import { ProductModelProps } from '@/models/ProductModelProps';
 
 const ClientProductDetailsPage = () => {
-  const { selectedProduct, removeProduct, addProduct } = useClientProduct();
+  const { selectedProduct, removeClientProduct, addClientProduct } = useClientProduct();
   const router = useRouter();
   const [productDetails, setProductDetails] = useState<ProductModelProps | null>(null);
 
@@ -60,7 +60,7 @@ const ClientProductDetailsPage = () => {
           text: 'Yes',
           onPress: () => {
             // Your update logic here
-            addProduct(productDetails);
+            addClientProduct(productDetails);
             // navigation.goBack();
           },
         },
@@ -80,7 +80,7 @@ const ClientProductDetailsPage = () => {
       {
         text: 'Yes',
         onPress: () => {
-          removeProduct(selectedProduct.id);
+          removeClientProduct(selectedProduct.id);
           router.back();
         },
       },

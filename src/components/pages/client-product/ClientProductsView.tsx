@@ -7,7 +7,7 @@ import { useClientProduct } from '@/contexts/ClientProductContext';
 // import ProductCard from '@/components/ProductCard';  // Adjust the import path as necessary
 import { Link, Stack } from 'expo-router';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
-import Colors from '@/constants/Colors';
+// import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { ProductModelProps } from '@/models/ProductModelProps';
 import ClientProductCard from '@/components/pages/client-product/ClientProductCard';
@@ -48,7 +48,7 @@ const ClientProductsView = () => {
                   <FontAwesome
                     name="plus"
                     size={30}
-                    color={Colors[colorScheme ?? 'light'].text}
+                    color={COLORS[colorScheme ?? 'light'].text}
                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
                   />
                 )}
