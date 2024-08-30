@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import WelcomePageTwo from '@/components/pages/welcome/WelcomePageTwo';
+import {WelcomePageTwo} from "@dhuntleypro/afm-library"
 
 const Welcome = () => {
   return (

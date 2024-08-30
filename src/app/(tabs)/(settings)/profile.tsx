@@ -1,11 +1,9 @@
-import { useAuth } from '@/contexts/AuthContext';
-import { AWS_HOLDER_IMAGE } from '@/utils/api';
 import React, { useState } from 'react';
 import { Alert } from 'react-native';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView, TextInput } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import { COLORS } from '@/utils/theme';
 import { Ionicons } from "@expo/vector-icons";
+import { AWS_HOLDER_IMAGE, COLORS , useAuth} from '@dhuntleypro/afm-library';
 
 const { width } = Dimensions.get('window');
 

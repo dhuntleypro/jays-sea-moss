@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, ScrollView, View } from 'react-native';
-import { COLORS, SIZES } from '@/utils/theme';
-import { useClientStore } from '@/contexts/ClientStoreContext';
+import { COLORS, SIZES , useClientStore} from '@dhuntleypro/afm-library';
 
 const TermsOfUse = () => {
   const { store } = useClientStore();

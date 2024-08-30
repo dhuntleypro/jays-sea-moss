@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import RegisterComponentTwo from '@/components/pages/register/RegisterComponentTwo'
+import { RegisterComponentTwo } from '@dhuntleypro/afm-library'
 
 const register = () => {
   return (

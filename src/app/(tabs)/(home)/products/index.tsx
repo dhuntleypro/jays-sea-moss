@@ -1,8 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ProductList from '@/components/other/products/ProductList'
-import ProductSearchScreen from '@/components/other/products/ProductSearchScreen'
-
+import {ProductSearchScreen} from '@dhuntleypro/afm-library'
 const Page = () => {
   return (
     // <ProductList client={false} />

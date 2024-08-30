@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CartScreen from '@/components/pages/cart/CartPageVOne'
+import {CartScreen} from "@dhuntleypro/afm-library"
 
 const cart = () => {
   return (

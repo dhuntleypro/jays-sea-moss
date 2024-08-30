@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, ScrollView, View } from 'react-native';
-import { COLORS, SIZES } from '@/utils/theme';
-import { useClientStore } from '@/contexts/ClientStoreContext';
+import { COLORS, SIZES } from '@dhuntleypro/afm-library';
+import { useClientStore } from "@dhuntleypro/afm-library"
 
 const PrivacyPolicy = () => {
   const { store } = useClientStore();

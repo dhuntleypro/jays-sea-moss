@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import CollectionPageVOne from '@/components/pages/collections/CollectionPageVOne'
-import CollectionPageVTwo from '@/components/pages/collections/CollectionPageVTwo'
+import {CollectionPageVOne , CollectionPageVTwo} from "@dhuntleypro/afm-library"
 
 const collections = () => {
   return ( 

@@ -10,7 +10,7 @@
     "update-library": "npm install @dhuntleypro/afm-library@latest"
   },
   "dependencies": {
-    "@dhuntleypro/afm-library": "^0.1.10",
+    "@dhuntleypro/afm-library": "^0.1.19",
     "@expo-google-fonts/inter": "^0.2.3",
     "@expo-google-fonts/manrope": "^0.2.3",
     "@expo-google-fonts/poppins": "^0.2.3",

@@ -2,7 +2,7 @@ import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-nati
 import React from 'react'
 import { router, Stack } from 'expo-router'
 import { Ionicons , Fontisto} from '@expo/vector-icons'
-import { COLORS } from '@/utils/theme'
+import { COLORS } from "@dhuntleypro/afm-library"
 
 const { width } = Dimensions.get('window');
 

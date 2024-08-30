@@ -1,5 +1,5 @@
 import React from 'react';
-import RootLayout from '@/components/layouts/RootLayout';
+import { RootLayout } from "@dhuntleypro/afm-library"
 
 
 

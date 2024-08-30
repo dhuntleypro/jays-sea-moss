@@ -10,7 +10,7 @@ import { Ionicons , Fontisto} from '@expo/vector-icons'
 // import Carousel from '@/components/home/Carousel';
 // import SectionHeader from '@/components/home/Headings';
 // import ProductRow from '@/components/other/cards/other/ProductRow';
-// import { COLORS, SIZES } from '@/utils/theme';
+// import { COLORS, SIZES } from '@dhuntleypro/afm-library';
 // import { TopSectionHeaderV1 } from '@/components/pages/home/TopSectionHeader';
 // import Carousel from '@/components/pages/home/Carousel';
 // import SectionHeader from '@/components/pages/home/Headings';

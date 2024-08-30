@@ -1,11 +1,8 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import React from 'react';
-import { COLORS } from '@/utils/theme';
-import { useAuth } from '../../../contexts/AuthContext';
-import { ProductModelProps } from '@/models/ProductModelProps';
-import { useClientProduct } from '@/contexts/ClientProductContext';
-import { useClientStore } from '@/contexts/ClientStoreContext';
-import ProductCardView from '@/components/library/card/ProductCardView';
+import { COLORS } from '@dhuntleypro/afm-library';
+import { useAuth , ProductModelProps , useClientProduct , useClientStore , ProductCardView} from "@dhuntleypro/afm-library"
+
 
 const Favorites: React.FC = () => {
   const { authState } = useAuth();

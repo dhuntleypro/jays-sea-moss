@@ -2,8 +2,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 // import SettingsPageWeb from '@/components/pages/settings/SettingsPage.web'
 // import SettingsPage from '@/components/TestViews/AccountPage'
-import SettingsPageWeb from '@/components/pages/settings/SettingsPage.web'
-import SettingsPage from '@/components/pages/settings/SettingsPage'
+import {SettingsPage} from "@dhuntleypro/afm-library"
 
 const settings = () => {
   return (

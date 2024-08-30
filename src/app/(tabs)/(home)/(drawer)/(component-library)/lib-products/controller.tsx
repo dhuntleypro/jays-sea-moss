@@ -1,23 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
-import { Link, Stack } from 'expo-router';
-import { Drawer } from 'expo-router/drawer';
-// import { ViewItem } from '../views/view-controller';
-// import ClientOrderCard from '@/components/library/client-order/ClientOrderCard';
-import { SAMPLE_ORDER, SAMPLE_ORDER_ITEMS } from '@/models/OrderModelProps';
-import OrderCrudCard from '@/components/other/cards/OrderCrudCard';
-// import ProductCardV2 from '@/components/other/cards/other/ProductCardV2';
-import { SAMPLE_PRODUCT } from '@/models/ProductModelProps';
-// import ProductCardView from '@/components/other/cards/ProductCardView';
-import ProductCrudCard from '@/components/other/cards/other/ProductCrudCard';
-// import ProductListItem from '@/components/other/products/ProductListItem';
-import ProductRow from '@/components/other/cards/other/ProductRow';
 import { ViewItem } from '../lib-views/view-controller';
-import ProductListItem from '@/components/other/products/ProductSearchTile';
-import ProductCardView from '@/components/library/card/ProductCardView';
-import ProductCardV2 from '@/components/library/card/ProductCardV2';
-// import ProductListItem from '@/components/other/products/ProductListItem';
+import {ProductCardV2 , SAMPLE_PRODUCT, ProductCardView, ProductListItem, ProductCrudCard} from "@dhuntleypro/afm-library"
 
 const ButtonController = () => {
   return (

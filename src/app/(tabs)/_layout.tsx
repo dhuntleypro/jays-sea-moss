@@ -7,9 +7,9 @@ import { Ionicons } from '@expo/vector-icons'
 // import Colors from '@/constants/Colors';
 // import { useColorScheme } from '@/components/useColorScheme';
 // import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-import { COLORS } from '@/utils/theme';
-import { useClientOnlyValue } from '@/hooks/useClientOnlyValue';
-import TabLayout from '@/components/layouts/TabLayout';
+import { COLORS } from '@dhuntleypro/afm-library';
+// import { useClientOnlyValue } from '@/hooks/useClientOnlyValue';
+import {TabLayout} from '@dhuntleypro/afm-library'
 
 
 export default function LayoutForTabs() {

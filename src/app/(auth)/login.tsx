@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import LoginComponentOne from '@/components/pages/login/LoginComponentOne'
-import LoginComponentTwo from '@/components/pages/login/LoginComponentTwo'
+import {LoginComponentTwo} from "@dhuntleypro/afm-library"
 
     
 const Login = () => {

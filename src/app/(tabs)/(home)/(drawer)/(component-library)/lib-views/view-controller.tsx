@@ -3,10 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { Link, Stack } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
-import BannerVOne from '@/components/library/banner/BannerVOne';
-import TextFieldVOne from '@/components/library/textfield/TextFieldVOne';
-import DeleteSectionView from '@/components/library/delete/DeleteSectionView';
-import Divider from '@/components/library/divider/Divider';
+import {BannerVOne, TextFieldVOne , DeleteSectionView, Divider} from "@dhuntleypro/afm-library"
+
 
 interface ViewItemProps {
   title: string;

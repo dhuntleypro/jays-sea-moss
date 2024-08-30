@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ProductSearchScreen from '@/components/other/products/ProductSearchScreen'
+import {ProductSearchScreen} from '@dhuntleypro/afm-library'
 
 const search = () => {
   return (

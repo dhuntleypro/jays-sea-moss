@@ -2,8 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, useColorScheme, View } from "react-
 import React, { useContext } from "react";
 import { router, Stack } from "expo-router";
 import { Fontisto, Feather, Ionicons } from "@expo/vector-icons";
-import { COLORS } from "@/utils/theme";
-import { CartContext } from "@/contexts/CartContext";
+import { COLORS, CartContext } from "@dhuntleypro/afm-library"
 
 const HomeLayout = () => {
   const { quantity} = useContext(CartContext)
