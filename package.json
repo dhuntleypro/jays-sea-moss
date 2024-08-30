@@ -6,9 +6,11 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "update-library": "npm install @dhuntleypro/afm-library@latest"
   },
   "dependencies": {
+    "@dhuntleypro/afm-library": "^0.1.10",
     "@expo-google-fonts/inter": "^0.2.3",
     "@expo-google-fonts/manrope": "^0.2.3",
     "@expo-google-fonts/poppins": "^0.2.3",
