@@ -14,7 +14,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@dhuntleypro/afm-library": "^0.1.580",
+    "@dhuntleypro/afm-library": "^0.1.597",
     "@expo/vector-icons": "^14.0.2",
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-navigation/drawer": "^6.7.2",
