@@ -1,7 +1,7 @@
 import register from "@/app/(auth)/register";
 import Welcome from "@/app/(auth)/welcome";
 import appearance from "@/app/(tabs)/(settings)/appearance";
-import { HomeDesignTwo, AppearanceSelection, LoginComponentTwo, ProductDetailsPageVThree, ProductSearchScreen, RegisterComponentTwo, WelcomePageTwo, CollectionPageVTwo, CollectionProductSearchScreen, CartPageVOne, CookiesPage, FAQPage, ProfilePage, FavoritesPageVOne, ProductDetailsPageVThreeProps } from "@dhuntleypro/afm-library";
+import { HomeDesignTwo, AppearanceSelection, LoginComponentTwo, ProductDetailsPageVThree, ProductSearchScreen, RegisterComponentTwo, WelcomePageTwo, CollectionPageVTwo, CollectionProductSearchScreen, CartPageVOne, CookiesPage, FAQPage, ProfilePage, FavoritesPageVOne, ProductDetailsPageVThreeProps, ProductGridCardVOne, ProductHScrollCardVOne, ProductCardProps} from "@dhuntleypro/afm-library";
 import { FunctionComponent } from "react";
 
 
@@ -32,6 +32,10 @@ interface PagesInterface {
     faq: FunctionComponent;
     profile: FunctionComponent;
     favorites: FunctionComponent;
+
+    productCardForGrid:  React.FC<ProductCardProps>;
+    productCardForHScroll:  React.FC<ProductCardProps>;
+
   }
 
 
@@ -67,7 +71,13 @@ const Pages: PagesInterface = {
     appearance: AppearanceSelection,
     faq: FAQPage,
     profile: ProfilePage,
-    favorites: FavoritesPageVOne 
+    favorites: FavoritesPageVOne ,
+
+    // Grid card
+    productCardForGrid: ProductGridCardVOne,
+
+    // Horizontal card
+    productCardForHScroll: ProductHScrollCardVOne
 
 
 

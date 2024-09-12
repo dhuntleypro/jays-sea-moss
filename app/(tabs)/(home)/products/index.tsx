@@ -4,12 +4,12 @@ import React from 'react'
 import {ProductSearchScreen} from '@dhuntleypro/afm-library'
 import Pages from '@/core/routes'
 const products = () => {
-  const ProductsPage  = Pages.productDetailsPage
+  const ProductsPage  = Pages.products
 
   return (
     // <ProductList client={false} />
     // <ProductSearchScreen />
-    <ProductsPage showSize={false} />
+    <ProductsPage />
   )
 }
 
