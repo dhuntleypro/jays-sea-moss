@@ -16,9 +16,9 @@ interface PagesInterface {
     cookie_policy: FunctionComponent;
   
     // (tabs) - home
-    homePage: FunctionComponent;
-    products: FunctionComponent;
-    productDetailsPage: React.FC<ProductDetailsPageVThreeProps>;
+    homePage: FunctionComponent
+    products: FunctionComponent
+    productDetailsPage: React.FC<ProductDetailsPageVThreeProps>
   
     // (tabs) - collections
     collections: FunctionComponent;

@@ -10,6 +10,28 @@ npm i
 npm start -- --clear
 
 
+
+
+
+# Build - Production
+Build both
+1. npx eas build
+2. ios
+
+
+# Build pre 
+sudo gem install fastlane
+ npm install native-notify
+npx expo install expo-device expo-notifications expo-constants
+
+
+
+
+
+
+
+
+
 # Navigate pages
 [Go to Index](src/app/index.tsx)
 [Go to Index _layout (START)](src/app/_layout.tsx)
@@ -23,7 +45,7 @@ npm start -- --clear
 
 
 
-# Build
+# Build (not correct)
 
 IOS: eas build --platform ios
 WEB: npx expo export --platform web

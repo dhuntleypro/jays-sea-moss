@@ -63,7 +63,6 @@ export const storeThemeV2 : StoreTheme = {
       buttonText: "#FFFFFF",      // White button text
       buttonShadow: "#1C5E44",    // Darker forest green shadow
 
-
       tint: '#FFFFFF', // Royal blue
       tabIconDefault: '#FFFFFF',
       tabIconSelected: '#FFFFFF',

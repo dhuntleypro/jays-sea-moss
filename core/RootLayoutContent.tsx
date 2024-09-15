@@ -5,7 +5,7 @@ import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import "react-native-reanimated";
-// import { useColorScheme } from "@/components/useColorScheme"; // Ensure this hook is working correctly
+import registerNNPushToken from 'native-notify';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import {
@@ -55,10 +55,16 @@ const AppProviders = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default function RootLayoutContent() {
+
+  // Font
   const [loaded, error] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
   });
+
+  // Push notification 
+  registerNNPushToken(23537, 'Fo2iQO685zeNlxWUhDszIC');
+
 
   useEffect(() => {
     if (error) throw error;
