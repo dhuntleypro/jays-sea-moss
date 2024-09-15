@@ -1,7 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-// import { TabLayoutContent } from '@dhuntleypro/afm-library'
 import TabLayoutContent from '@/core/TabLayoutContent'
+// import { TabLayoutContent } from '@dhuntleypro/afm-library'
+// import TabLayoutContent from '@/core/TabLayoutContent'
 
 const TabLayout = () => {
   return (
