@@ -1,20 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import {LoginComponentTwo, useClientStore} from "@dhuntleypro/afm-library"
-import Pages from '@/core/routes';
-    
-const Login = () => {
-  const {store } = useClientStore()
-  const LoginPage = Pages.register; // Dynamically use component from the registry
+import { StyleSheet } from 'react-native'
 
+import { LoginComponentTwo } from '@dhuntleypro/afm-expo-library'
+
+const login = () => {
   return (
-    <LoginPage />
-    //  <LoginComponentTwo />    
+    <LoginComponentTwo />
   )
 }
 
-export default Login
+export default login
 
 const styles = StyleSheet.create({})
-
-

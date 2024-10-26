@@ -1,133 +1,181 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import TabLayoutContent from '@/core/TabLayoutContent'
-// import { TabLayoutContent } from '@dhuntleypro/afm-library'
-// import TabLayoutContent from '@/core/TabLayoutContent'
+import React, { useEffect, useState } from "react";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Tabs, router } from "expo-router";
+import { ActivityIndicator, View, Text, StyleSheet } from "react-native";
+import { useAuth, useCart, useClientCollection, useClientProduct, useClientStore, useTheme } from "@dhuntleypro/afm-expo-library";
+import { store_id } from "@/app/_layout";
 
-const TabLayout = () => {
+function TabBarIconWithBadge(props: { name: React.ComponentProps<typeof FontAwesome>["name"]; color: string; quantity?: number }) {
+  const { colors } = useTheme(); // Pulling colors from the custom theme
+
+  const styles = StyleSheet.create({
+    badgeContainer: {
+      position: "absolute",
+      right: -6,
+      top: -3,
+      backgroundColor: colors.primary, // Set the badge color
+      borderRadius: 8,
+      width: 16,
+      height: 16,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    badgeText: {
+      color: "white",
+      fontSize: 10,
+      fontWeight: "bold",
+    },
+  });
+
   return (
-    <TabLayoutContent />
-  )
+    <View>
+      <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />
+      {props.quantity && props.quantity > 0 ? (
+        <View style={styles.badgeContainer}>
+          <Text style={styles.badgeText}>{props.quantity}</Text>
+        </View>
+      ) : null}
+    </View>
+  );
 }
 
-export default TabLayout
+export default function TabLayoutContent() {
+  const { colors } = useTheme(); // Pulling colors from the custom theme
+  const { authState } = useAuth();
+  const { getClientProducts } = useClientProduct();
+  const { getClientStore } = useClientStore();
+  const { getClientCollections } = useClientCollection();
+  const { quantity } = useCart(); // Getting cart quantity from the useCart hook
 
-const styles = StyleSheet.create({})
+  const [isMounted, setIsMounted] = useState(false);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const checkAuthStatus = async () => {
+      setIsCheckingAuth(true);
+      try {
+        if (authState?.authenticated) {
+          console.log("User authenticated, fetching data...");
+          await getClientProducts(store_id);
+          await getClientStore(store_id);
+          await getClientCollections(store_id);
+        } else {
+          await getClientStore(store_id);
+          router.replace("/welcome");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsCheckingAuth(false);
+      }
+    };
+
+    checkAuthStatus();
+  }, [isMounted, authState]);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (isCheckingAuth) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" color={colors.primary} />
+      </View>
+    );
+  }
+
+  return (
+    <Tabs
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color }) => {
+          const iconColor = focused ? colors.tabIconSelected : colors.tabIconDefault;
+          let iconName: React.ComponentProps<typeof FontAwesome>["name"] = "question-circle";
+
+          switch (route.name) {
+            case "(home)":
+              iconName = "home";
+              break;
+            case "collections":
+              iconName = "gift";
+              break;
+            case "cart":
+              iconName = "shopping-cart";
+              break;
+            case "(settings)":
+              iconName = "gear";
+              break;
+          }
+
+          return (
+            <TabBarIconWithBadge
+              name={iconName}
+              color={iconColor}
+              quantity={route.name === "cart" ? quantity : undefined} // Only show badge on the cart tab
+            />
+          );
+        },
+        tabBarActiveTintColor: colors.tabIconSelected, // Using tabIconSelected from theme
+        tabBarInactiveTintColor: colors.tabIconDefault, // Using tabIconDefault from theme
+        tabBarStyle: { backgroundColor: colors.background }, // Set background color for tabs
+        headerShown: false, // Default behavior, header is hidden
+      })}
+    >
+      <Tabs.Screen
+        name="(home)"
+        options={{
+          title: "Home",
+       }}
+      />
+      <Tabs.Screen
+        name="collections"
+        options={{
+          title: "Collections",
+        }}
+      />
+      <Tabs.Screen
+        name="cart"
+        options={{
+          title: "Cart",
+          headerShown: true, // Show header specifically for the cart screen
+          headerStyle: {
+            backgroundColor:  colors.pageBackground, 
+          },
+          headerTintColor: colors.pageText
+        }}
+      />
+      <Tabs.Screen
+        name="(settings)"
+        options={{
+          title: "Settings",
+          headerStyle: {
+            backgroundColor:  colors.pageBackground, 
+          },
+          headerTintColor: colors.pageText
+        }}
+      />
+    </Tabs>
+  );
+}
 
 
-// import React, { useEffect, useState } from "react";
-// import FontAwesome from "@expo/vector-icons/FontAwesome";
-// import { Link, router, Tabs } from "expo-router";
-// import { Pressable, ActivityIndicator, View } from "react-native";
 
-// // import Colors from "@/constants/Colors";
-// import { useColorScheme } from "@/components/useColorScheme";
-// import { useClientOnlyValue } from "@/components/useClientOnlyValue";
-// import { useAuth, useClientCollection, useClientProduct, useClientStore , COLORS} from "@dhuntleypro/afm-library";
-// import { CONSTANTS } from "@/constants/constants";
 
-// function TabBarIcon(props: {
-//   name: React.ComponentProps<typeof FontAwesome>["name"];
-//   color: string;
-// }) {
-//   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-// }
 
-// export default function TabLayout() {
-//   const colorScheme = useColorScheme();
-//   const { authState } = useAuth();
-//   const { getClientProducts } = useClientProduct(); 
-//   const { getClientStore } = useClientStore();
-//   const { getClientCollections } = useClientCollection();
-  
-//   const [isMounted, setIsMounted] = useState(false);
-//   const [isCheckingAuth, setIsCheckingAuth] = useState(true); // Add loading state
 
-//   useEffect(() => {
-//     if (!isMounted) return;
-  
-//     const checkAuthStatus = async () => {
-//       setIsCheckingAuth(true); // Set loading state to true
-//       if (authState?.authenticated) {
-//         console.log("User authenticated, fetching data...");
-//         await getClientProducts(CONSTANTS.store_id); 
-//         await getClientStore(CONSTANTS.store_id);
-//         await getClientCollections(CONSTANTS.store_id);
-//       } else {
-//         await getClientStore(CONSTANTS.store_id);
-//         router.replace("/welcome"); // Redirect to the welcome page if not authenticated
-//       }
-//       setIsCheckingAuth(false); // Set loading state to false after auth check
-//     };
-  
-//     checkAuthStatus();
-//   }, [isMounted, authState]);
 
-//   useEffect(() => {
-//     setIsMounted(true);
-//   }, []);
+// import { StyleSheet, Text, View } from 'react-native'
+// import React from 'react'
+// import TabLayoutContent from '@/layouts/TabLayoutContent'
 
-//   if (isCheckingAuth) {
-//     // Display loading spinner while checking authentication status
-//     return (
-//       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-//         <ActivityIndicator size="large" color={COLORS[colorScheme ?? "light"].tint} />
-//       </View>
-//     );
-//   }
-
+// const _layout = () => {
 //   return (
-//     <Tabs
-//       screenOptions={{
-//         tabBarActiveTintColor: COLORS[colorScheme ?? "light"].tint,
-//         headerShown: useClientOnlyValue(false, true),
-//       }}
-//     >
-//       <Tabs.Screen
-//         name="(home)"
-//         options={{
-//           title: "Home",
-//           headerShown: false,
-//           tabBarIcon: ({ color }) => <TabBarIcon name="square" color={color} />,
-//           headerRight: () => (
-//             <Link href="/modal" asChild>
-//               <Pressable>
-//                 {({ pressed }) => (
-//                   <FontAwesome
-//                     name="info-circle"
-//                     size={25}
-//                     color={COLORS[colorScheme ?? "light"].text}
-//                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-//                   />
-//                 )}
-//               </Pressable>
-//             </Link>
-//           ),
-//         }}
-//       />
-//       <Tabs.Screen
-//         name="collections"
-//         options={{
-//           title: "Collections",
-//           headerShown: false,
-//           tabBarIcon: ({ color }) => <TabBarIcon name="gift" color={color} />,
-//         }}
-//       />
-//       <Tabs.Screen
-//         name="cart"
-//         options={{
-//           title: "Cart",
-//           tabBarIcon: ({ color }) => <TabBarIcon name="shopping-cart" color={color} />,
-//         }}
-//       />
-//       <Tabs.Screen
-//         name="(settings)"
-//         options={{
-//           title: "Settings",
-//           headerShown: false,
-//           tabBarIcon: ({ color }) => <TabBarIcon name="gear" color={color} />,
-//         }}
-//       />
-//     </Tabs>
-//   );
+//     <TabLayoutContent />
+//   )
 // }
+
+// export default _layout
+
+// const styles = StyleSheet.create({})

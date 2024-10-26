@@ -1,8 +1,7 @@
 
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { FavoritesPageVOne } from "@dhuntleypro/afm-library"
-import Pages from '@/core/routes';
+import { Pages } from "@dhuntleypro/afm-expo-library"
 
 const favorites = () => {
   const FavoritesPage = Pages.favorites; // Dynamically use component from the registry
@@ -35,7 +34,7 @@ const styles = StyleSheet.create({})
 
 // import { StyleSheet, Text, View, FlatList } from 'react-native';
 // import React from 'react';
-// import { ProductModelProps, useAuth, useClientProduct, useClientStore, ProductCardView, COLORS } from '@dhuntleypro/afm-library';
+// import { ProductModelProps, useAuth, useClientProduct, useClientStore, ProductCardView, COLORS } from '@dhuntleypro/afm-expo-library';
 // // import { COLORS } from '@/utils/theme';
 // // import { useAuth } from '../../../contexts/AuthContext';
 // // import { ProductModelProps } from '@/models/ProductModelProps';

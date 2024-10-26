@@ -1,6 +1,5 @@
+import { Pages } from '@dhuntleypro/afm-expo-library';
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Pages from '@/core/routes';
 
 const profile = () => {
     const ProfilePage = Pages.profile; // Dynamically use component from the registry
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({})
 // import React, { useState, useCallback } from 'react';
 // import { Alert, ScrollView, View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, TextInput } from 'react-native';
 // import * as ImagePicker from 'expo-image-picker';
-// import { useAuth, AWS_HOLDER_IMAGE, UserProps } from "@dhuntleypro/afm-library";
+// import { useAuth, AWS_HOLDER_IMAGE, UserProps } from "@dhuntleypro/afm-expo-library";
 // import { Ionicons } from "@expo/vector-icons";
 // import { useTheme } from '@react-navigation/native'; // Assuming useTheme is coming from your custom theme
 
@@ -277,7 +276,7 @@ const styles = StyleSheet.create({})
 // import { Alert } from 'react-native';
 // import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView, TextInput } from 'react-native';
 // import * as ImagePicker from 'expo-image-picker';
-// import { useAuth, AWS_HOLDER_IMAGE } from "@dhuntleypro/afm-library";
+// import { useAuth, AWS_HOLDER_IMAGE } from "@dhuntleypro/afm-expo-library";
 // import { Ionicons } from "@expo/vector-icons";
 // import { useTheme } from '@react-navigation/native'; // Assuming useTheme is coming from your custom theme
 
@@ -487,7 +486,7 @@ const styles = StyleSheet.create({})
 // import { Alert } from 'react-native';
 // import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions, ScrollView, TextInput } from 'react-native';
 // import * as ImagePicker from 'expo-image-picker';
-// import { COLORS , useAuth  , AWS_HOLDER_IMAGE} from "@dhuntleypro/afm-library"
+// import { COLORS , useAuth  , AWS_HOLDER_IMAGE} from "@dhuntleypro/afm-expo-library"
 // import { Ionicons } from "@expo/vector-icons";
 // import { useTheme } from '@react-navigation/native';
 

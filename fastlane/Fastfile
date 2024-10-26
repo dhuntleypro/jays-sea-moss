@@ -1,56 +1,47 @@
-before_all do
-    ensure_git_branch
-    ensure_git_status_clean
-    git pull
-  end
-  
-  platform :ios do
-    lane :create_app_id do
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Create App Identifier if not already in App Store Connect"
+  lane :create_app_identifier_and_add_app_to_connect do
+    begin
       produce(
-        app_name: "Jays Sea Moss",
-        app_identifier: "com.dhuntleypro.jaysseamoss",
-        language: "English",
-        skip_itc: true,
-        skip_deploy: true
+        app_identifier: ENV['APP_IDENTIFIER'],  
+        app_name: ENV['APP_NAME'],  
+        sku: ENV['APP_SKU'],        
+        platform: "ios",           
+        language: "en-US",
+        team_id: ENV['APPLE_TEAM_ID'],
+        username: ENV['FASTLANE_USER'],
+        skip_itc: false, 
+        skip_devcenter: false
       )
-    end
-  
-    private_lane :staging_build do
-      app_store_version = get_app_store_version_number(bundle_id: 'ReactNativeFastlane')
-      plist_version = get_version_number_from_plist(xcodeproj: './ios/ReactNativeFastlane.xcodeproj')
-      
-      if Gem::Version.new(plist_version.to_f) == Gem::Version.new(app_store_version.to_f)
-        UI.message "Bumping minor version"
-        increment_version_number_in_plist(
-          xcodeproj: './ios/ReactNativeFastlane.xcodeproj',
-          bump_type: 'minor'
-        )
-      else
-        UI.message "Bumping patch version"
-        increment_version_number_in_plist(
-          xcodeproj: './ios/ReactNativeFastlane.xcodeproj',
-          bump_type: 'patch'
-        )
-      end
-  
-      increment_build_number_in_plist(
-        xcodeproj: './ios/ReactNativeFastlane.xcodeproj',
-        target: 'ReactNativeFastlane'
-      )
-      gym(
-        scheme: 'ReactNativeFastlane-staging',
-        workspace: './ios/ReactNativeFastlane.xcworkspace'
-      )
-    end
-  
-    lane :beta do
-      staging_build
-      upload_to_testflight(
-        username: 'dhuntleypro@icloud.com',
-        app_identifier: 'com.yourcompany.yourapp'
-      )
-      commit_version_bump(message: 'Bump build number')
-      push_to_git_remote
+      UI.success("App Identifier successfully created and added to App Store Connect!")
+    rescue => e
+      UI.message("App might already exist. Skipping creation. Error: #{e.message}")
     end
   end
+
+  #desc "Get App ID"
+  # lane :get_app_id do
+  #   Spaceship::Tunes.login(username: ENV['FASTLANE_USER'])
+  #   app = Spaceship::Tunes::Application.find("com.yourcompany.yourappname") # Your bundle ID
+  #   UI.message("App Store Connect App ID: #{app.apple_id}")
+  # end
   
+
+  desc "Submit to App Store"
+  lane :submit_to_app_store do
+    sh("npx eas submit -p ios --profile production --latest")
+  end
+
+  desc "Build and Submit App using EAS and Fastlane"
+  lane :deploy do
+    UI.message("Starting the deployment process...")
+    create_app_identifier_and_add_app_to_connect
+    # sync_certificates_and_profiles
+    sh("npx eas build -p ios --profile production --auto-submit")
+    submit_to_app_store
+    UI.success("App successfully submitted to the App Store!")
+  end
+end

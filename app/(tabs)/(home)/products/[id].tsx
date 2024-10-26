@@ -1,7 +1,5 @@
 import { StyleSheet } from 'react-native'
-import React, { FC } from 'react'
-import { ProductModelProps , ProductDetailsPageVThree, useClientProduct, ProductDetailsPageVFour} from "@dhuntleypro/afm-library"
-import Pages from '@/core/routes'
+import { Pages, useClientProduct} from "@dhuntleypro/afm-expo-library"
 const ProductDetailsScreen = () => {
   const ProductDetailsPage = Pages.productDetailsPage
   const {selectedProduct} = useClientProduct()

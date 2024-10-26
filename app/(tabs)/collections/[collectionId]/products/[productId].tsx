@@ -1,14 +1,12 @@
 // app/collections/[collectionId]/products/[productId].tsx
 // import { useSearchParams } from 'expo-router';
-import Pages from '@/core/routes';
-import { ProductDetailsPageVThree, useClientCollection, useClientProduct } from '@dhuntleypro/afm-library';
+import { Pages, ProductDetailsPageVThree, useClientProduct } from '@dhuntleypro/afm-expo-library';
 import { Text, View } from 'react-native';
 
 export default function CollectionProductDetails() {
   // const { collectionId, productId } = useSearchParams();
 
   const ProductDetails = Pages.productDetailsPage
-  const {selectedCollection} = useClientCollection()
   const {selectedProduct} = useClientProduct()
   return (
     // <Text>Details...</Text>
@@ -46,7 +44,7 @@ export default function CollectionProductDetails() {
 // // import ProductDetailsPage from '@/components/pages/product-details/ProductDetailsPageVOne'
 // // import ProductDetailsPageVOne from '@/components/pages/product-details/ProductDetailsPageVOne'
 // // import ProductDetailsPageVTwo from '@/components/pages/product-details/ProductDetailsPageVTwo'
-// import { ProductModelProps , ProductDetailsPageVThree, useClientProduct, ProductDetailsPageVFour} from "@dhuntleypro/afm-library"
+// import { ProductModelProps , ProductDetailsPageVThree, useClientProduct, ProductDetailsPageVFour} from "@dhuntleypro/afm-expo-library"
 // // import ProductDetailsPageVThree from '@/components/pages/product-details/ProductDetailsPageVThree'
 // // import ProductDetailsPageVTwo from '@/components/pages/product-details/ProductDetailsPageVTwo'
 

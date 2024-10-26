@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
-import { SAMPLE_PRODUCT , ProductCrudCard , ProductCardView , ProductCardV2 , ProductListItem} from "@dhuntleypro/afm-library"
+import { SAMPLE_PRODUCT , ProductCrudCard  , ProductCardV2 , ProductListItem} from "@dhuntleypro/afm-expo-library"
 import { ViewItem } from '../lib-views/view-controller';
 
 
@@ -16,10 +16,10 @@ const ButtonController = () => {
             title={"ProductCardV2"}
             children={<ProductCardV2 {...SAMPLE_PRODUCT[0]} />}
           /> 
-          <ViewItem
+          {/* <ViewItem
             title={"ProductCardView"}
             children={<ProductCardView product={SAMPLE_PRODUCT[0]} />}
-          />
+          /> */}
           <ViewItem
             title={"ProductCrudCard"}
             children={<ProductCrudCard {...SAMPLE_PRODUCT[0]} />}

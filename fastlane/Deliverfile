@@ -1,0 +1,8 @@
+## Automatically submit the app for review after uploading
+submit_for_review false
+
+## Metadata path
+# metadata_path "./ios/metadata"
+
+## Path to screenshots (if you want to automate screenshots upload)
+# screenshots_path "./screenshots"

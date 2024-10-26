@@ -1,8 +1,7 @@
 
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { AppearanceSelection } from '@dhuntleypro/afm-library'
-import Pages from '@/core/routes';
+import { StyleSheet } from 'react-native'
+
+import { Pages } from '@dhuntleypro/afm-expo-library'
 
 const appearance = () => {
   const AppearancePage = Pages.appearance; // Dynamically use component from the registry
@@ -34,7 +33,7 @@ const styles = StyleSheet.create({})
 //   Dimensions,
 // } from 'react-native';
 // import { Ionicons } from '@expo/vector-icons';
-// import { useTheme } from "@dhuntleypro/afm-library"
+// import { useTheme } from "@dhuntleypro/afm-expo-library"
 
 // const { width } = Dimensions.get('window');
 

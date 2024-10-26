@@ -1,0 +1,27 @@
+# git_url("https://github.com/dhuntleypro/fastlane-match-repo.git") # URL to the repo containing certificates
+git_branch("main") # The branch to use in the git repo
+
+# clone_branch_directly(true) # Optional: to speed up the cloning process
+
+# Set your app store certificate type (appstore, development, adhoc, enterprise)
+type("appstore")
+
+# Optional: Generate new Apple certificates if needed
+generate_apple_certs(true)
+
+# Storage settings
+storage_mode("git") # Git-based certificate storage
+
+# User and team settings
+username(ENV['FASTLANE_USER']) # Ensure FASTLANE_USER is set in your environment
+team_id(ENV['APPLE_TEAM_ID']) # Your Apple Team ID
+app_identifier(ENV['APP_IDENTIFIER'])
+
+# Keychain settings (you already have this set correctly)
+keychain_name("login.keychain")
+keychain_password(ENV['FASTLANE_PASSWORD']) # Ensure this is set in your environment
+
+# Set readonly to false so Fastlane can create certificates if needed
+readonly(false)
+
+# Additional optional settings can be added here if necessary

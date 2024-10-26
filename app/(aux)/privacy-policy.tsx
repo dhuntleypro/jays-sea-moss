@@ -1,12 +1,10 @@
-import { COLORS, SIZES, useClientStore , PrivacyPolicyPage } from '@dhuntleypro/afm-library';
-import React from 'react';
-import { StyleSheet, Text, ScrollView, View } from 'react-native';
-// import { COLORS, SIZES } from '@/utils/theme';
-// import { useClientStore } from '@/contexts/ClientStoreContext';
+import { Pages } from "@dhuntleypro/afm-expo-library";
 
 const privacyPolicy = () => {
+  const PrivacyPolicy = Pages.privacy_policy
+
   return (
-    <PrivacyPolicyPage />
+    <PrivacyPolicy />
   );
 };
 

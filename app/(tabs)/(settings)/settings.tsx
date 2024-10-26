@@ -3,7 +3,7 @@ import React from 'react'
 // import SettingsPageWeb from '@/components/pages/settings/SettingsPage.web'
 // import SettingsPage from '@/components/TestViews/AccountPage'
 // import SettingsPageWeb from '@/components/pages/settings/SettingsPage.web'
-import {SettingsPage} from "@dhuntleypro/afm-library"
+import {SettingsPage} from "@dhuntleypro/afm-expo-library"
 
 const settings = () => {
   return (

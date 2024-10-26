@@ -1,57 +1,28 @@
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  useColorScheme,
-  View,
-} from "react-native";
-import React, { useContext } from "react";
-import { router, Stack } from "expo-router";
-import { Fontisto, Feather, Ionicons } from "@expo/vector-icons";
-import { CartIcon, useCart, useTheme } from "@dhuntleypro/afm-library";
-// import { useCart } from "@/contexts/CartContext";
-// import { useTheme } from "@/contexts/ThemeContext"
+
+import {  Stack } from "expo-router";
+import { CartIcon, useTheme } from "@dhuntleypro/afm-expo-library";
+
 
 export default function CollectionLayout() {
   const { colors } = useTheme();
 
-  const styles = StyleSheet.create({
-    backButton: {
-      marginLeft: 8, // Adjust margin to position the back button
-    },
-    cartButton: {
-      alignItems: "flex-end",
-      marginRight: 10,
-    },
-    cartCount: {
-      position: "absolute",
-      bottom: 16,
-      width: 16,
-      height: 16,
-      borderRadius: 8,
-      alignItems: "center",
-      backgroundColor: colors.primary,
-      justifyContent: "center",
-      zIndex: 999,
-    },
-    cartNumber: {
-      fontFamily: "regular",
-      fontWeight: "600",
-      fontSize: 10,
-      color: colors.title,
-    },
-  });
-
+  
   return (
     <Stack>
       <Stack.Screen
         name="index"
         options={{
+          
           title: "Collections",
+          // headerBackground: colors.background,
           headerRight: () => (
             // Need
             <CartIcon />
           ),
+          headerStyle: {
+            backgroundColor:  colors.pageBackground, 
+          },
+          headerTintColor: colors.pageText
         }}
       />
       <Stack.Screen name="[collectionId]/products" options={{ title: "" }} />
@@ -60,7 +31,7 @@ export default function CollectionLayout() {
 }
 
 // import React from 'react';
-// import { TabLayout } from "@dhuntleypro/afm-library";
+// import { TabLayout } from "@dhuntleypro/afm-expo-library";
 
 // export default function LayoutForTabs() {
 //   return <TabLayout />;

@@ -1,12 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, ScrollView, View } from 'react-native';
-// import { COLORS, SIZES } from '@/utils/theme';
-import { useClientStore,  COLORS, SIZES, TermsOfUsePage } from "@dhuntleypro/afm-library"
+import { Pages } from '@dhuntleypro/afm-expo-library';
 
 const termsOfUsePage = () => {
-  
+  const TermsOfUse = Pages.termsOfUse
+
   return (
-    <TermsOfUsePage />
+    <TermsOfUse /> 
   )
 };
 

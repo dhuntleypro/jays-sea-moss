@@ -1,18 +1,54 @@
 {
   "cli": {
-    "version": ">= 10.2.3"
+    "version": ">= 12.4.1",
+    "appVersionSource": "remote"
   },
   "build": {
+    "sit": {
+      "ios": {
+        "releaseChannel": "sit",
+        "distribution": "store",
+        "autoIncrement": true,
+        "credentialsSource": "remote",
+        "env": {
+          "NPM_TOKEN": "@@NPM_TOKEN"
+        }
+      }
+    },
     "development": {
       "developmentClient": true,
-      "distribution": "internal"
+      "ios": {
+        "autoIncrement": true,
+        "credentialsSource": "remote",
+        "distribution": "internal",
+        "simulator": true
+      }
     },
     "preview": {
-      "distribution": "internal"
+      "distribution": "internal",
+      "ios": {
+        "autoIncrement": true,
+        "credentialsSource": "remote"
+      }
     },
-    "production": {}
+    "production": {
+      "ios": {
+        "autoIncrement": true,
+        "credentialsSource": "remote",
+        "distribution": "store",
+        "env": {
+          "NODE_OPTIONS": "--max_old_space_size=8192"
+        }
+      }
+    }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "dhuntleypro@icloud.com",
+        "appleTeamId": "SNW84Q39QZ"
+      }
+    }
   }
 }
+

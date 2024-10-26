@@ -1,10 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { CookiesPage } from '@dhuntleypro/afm-library'
+import { StyleSheet, View, Text} from 'react-native'
+import { Pages } from '@dhuntleypro/afm-expo-library'
 
 const cookiesPolicy = () => {
+  const CookiesPage = Pages.cookie_policy
   return (
-   <CookiesPage/>
+    // <CookiesPage />
+    <View><Text>cookies</Text></View>
   )
 }
 

@@ -1,10 +1,5 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet } from "react-native";
 import { Stack } from "expo-router";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Ionicons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
-import { DrawerActions, useNavigation } from "@react-navigation/native";
 
 const ButtonLayout = () => {
 

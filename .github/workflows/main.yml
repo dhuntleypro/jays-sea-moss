@@ -1,0 +1,157 @@
+# name: Build and Submit iOS App
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+
+#   add_secrets:
+#     runs-on: macos-latest
+#     steps:
+    
+#       - name: Add GitHub Secrets 1
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $APP_STORE_CONNECT_API_KEY_KEY_ID
+#         run: |
+#           gh secret set APP_STORE_CONNECT_API_KEY_KEY_ID -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY 
+      
+#       - name: Add GitHub Secrets 2
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $APP_STORE_CONNECT_API_KEY_ISSUER_ID
+#         run: | 
+#           gh secret set APP_STORE_CONNECT_API_KEY_ISSUER_ID -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY
+      
+#       - name: Add GitHub Secrets 3
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $APP_STORE_CONNECT_P8_BASE64
+#         run: |
+#           gh secret set APP_STORE_CONNECT_P8_BASE64 -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY 
+      
+#       - name: Add GitHub Secrets 4
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $FASTLANE_USER
+#         run: |
+#           gh secret set FASTLANE_USER -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY
+      
+#       - name: Add GitHub Secrets 5
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $FASTLANE_PASSWORD
+#         run: |
+#           gh secret set FASTLANE_PASSWORD -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY 
+      
+#       - name: Add GitHub Secrets 5
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD
+#         run: |
+#           gh secret set FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY 
+      
+#       - name: Add GitHub Secrets 6
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $APPLE_TEAM_ID
+#         run: |
+#           gh secret set APPLE_TEAM_ID -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY
+      
+#       - name: Add GitHub Secrets 7
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $EXPO_USERNAME
+#         run: |
+#           gh secret set EXPO_USERNAME -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY
+  
+#       - name: Add GitHub Secrets 8
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $EXPO_PASSWORD
+#         run: |
+#           gh secret set EXPO_PASSWORD -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY
+      
+#       - name: Add GitHub Secrets 9
+#         env:
+#           GH_TOKEN: ${{ secrets.MASTER }}
+#           SECRET_VALUE: $MATCH_GIT_TOKEN
+#         run: |
+#           gh secret set MATCH_GIT_TOKEN -b "$SECRET_VALUE" -R $GITHUB_REPOSITORY
+      
+
+#   build:
+#     runs-on: macos-latest
+
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
+
+#     # - name: Set up Node.js
+#     #   uses: actions/setup-node@v2
+#     #   with:
+#     #     node-version: '18'
+
+#     # - name: Configure npm for GitHub Packages
+#     #   run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.MASTER }}" > ~/.npmrc
+
+#     # - name: Configure npm for GitHub Packages
+#     #   run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+
+#     # - name: Configure npm for GitHub Packages with PAT
+#     #   run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.MAX }}" > ~/.npmrc
+
+
+#     - name: Verify npm Authentication
+#       run: |
+#         echo "//npm.pkg.github.com/:_authToken=${{ secrets.MASTER }}" > ~/.npmrc
+
+#     - name: Install dependencies
+#       run: npm install
+
+#     # Install Expo CLI
+#     - name: Install Expo CLI
+#       run: npm install -g expo-cli
+
+#     # Install EAS CLI for the new build process
+#     - name: Install EAS CLI
+#       run: npm install -g eas-cli
+
+#     # Install fastlane
+#     - name: Install Fastlane
+#       run: |
+#         gem install bundler
+#         bundle install
+
+#     # Log into expo
+#     - name: Log in to Expo
+#       run: expo login --username dhuntleypro@gmail.com --password Dontrush@321
+
+#     # Create app identifier
+#     - name: Create app identifier
+#       run: fastlane ios create_app_identifier_and_add_app_to_connect
+
+#     # Build and deploy
+#     - name: EAS Build iOS and Submit to App Store Connect
+#       run: npx eas build -p ios --non-interactive --auto-submit 
+#       env:
+#         EAS_BUILD_PROFILE: production
+#         APPLE_ID: ${{ secrets.APPLE_ID }}
+#         APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+#         APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+#         FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+#         FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+#         MATCH_GIT_TOKEN:  ${{ secrets.MASTER }}
+#         EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+#         APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_KEY_ID }}
+#         APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_API_KEY_ISSUER_ID }}
+#         APP_STORE_CONNECT_P8_BASE64: ${{ secrets.APP_STORE_CONNECT_P8_BASE64 }}
+
+
+
+
+
+
+

@@ -1,8 +1,20 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "skipLibCheck": true, // Add this if it’s not already there avoid fake node errors 
+
+    "allowSyntheticDefaultImports": true,  // Enable synthetic default imports
+    "esModuleInterop": true,  // React             // Usually a good companion setting
+    "moduleResolution": "node", // For react-native
+    "resolveJsonModule": true,
+    "outDir": "dist",
+    "module": "ESNext",
+    "target": "ESNext",
+    "jsx": "react-jsx",
+    "declaration": true,
+    "declarationDir": "dist",
     "strict": true,
-    "paths": {
+        "paths": {
       "@/*": [
         "./*"
       ]

@@ -1,53 +1,73 @@
 {
   "name": "jays-sea-moss",
-  "version": "1.0.0",
   "main": "expo-router/entry",
+  "version": "1.0.0",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "build:web": "expo build:web",
-    "update-library": "npm uninstall @dhuntleypro/afm-library && npm install @dhuntleypro/afm-library@latest && npm start -- --clear",
-    "start-now": "npm start -- --clear"
+    "test": "jest --watchAll",
+    "clean": "rm -rf ./node_modules && rm -rf package-lock.json",
+    "check-for-errors": "npx tsc --noEmit",
+    "update": " npm install @dhuntleypro/afm-expo-library@latest && npm start -- --clear ",
+    "create": "fastlane ios create_app_identifier_and_add_app_to_connect",
+    "submit": "npx eas submit -p ios --latest",
+    "pre-upload": "npx eas init && sudo gem install bundler -v 2.4.22 && sudo gem install bundler  && sudo gem install fastlane",
+    "base-installs": "npm install && npx eas init && npm install -g expo-cli && npm install -g eas-cli",
+    "first-upload-0": " echo 'Update Apple Connect access....' && fastlane spaceauth && npm run base-installs && npm install &&  npm run create && npm run upload-build",
+    "upload-build": "npx eas build -p ios --clear-cache --profile production --auto-submit",
+    "first-submit": "npm run clean && chmod +x update-app-name.sh && ./update-app-name.sh && npm run base-installs && npm run create && npm run upload-build",
+    "update-build": " npm run upload-build "
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@dhuntleypro/afm-library": "^0.1.624",
+    "@babel/preset-env": "^7.25.8",
+    "@dhuntleypro/afm-expo-library": "^1.0.55",
     "@expo/vector-icons": "^14.0.2",
-    "@react-native-async-storage/async-storage": "1.23.1",
+    "@react-native-async-storage/async-storage": "^1.24.0",
     "@react-navigation/drawer": "^6.7.2",
-    "@react-navigation/native": "^6.0.2",
-    "expo": "~51.0.34",
+    "@stripe/stripe-react-native": "^0.37.3",
+    "@types/stack-utils": "^2.0.3",
+    "dotenv": "^16.4.5",
+    "expo": "~51.0.28",
     "expo-constants": "~16.0.2",
     "expo-device": "~6.0.2",
     "expo-font": "~12.0.9",
     "expo-image-picker": "^15.0.7",
+    "expo-linear-gradient": "~13.0.2",
     "expo-linking": "~6.3.1",
-    "expo-notifications": "~0.28.17",
+    "expo-notifications": "~0.28.18",
     "expo-router": "~3.5.23",
-    "expo-splash-screen": "~0.27.6",
+    "expo-splash-screen": "~0.27.5",
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
     "expo-web-browser": "~13.0.3",
+    "git-filter-repo": "^0.0.30",
     "native-notify": "^4.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
+    "react-native-async-storage": "^0.0.1",
+    "react-native-gesture-handler": "~2.16.1",
     "react-native-reanimated": "~3.10.1",
     "react-native-safe-area-context": "4.10.5",
     "react-native-screens": "3.31.1",
-    "react-native-web": "~0.19.10"
+    "zod-validation-error": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@types/jest": "^29.5.12",
     "@types/react": "~18.2.45",
+    "@types/react-test-renderer": "^18.0.7",
     "jest": "^29.2.1",
     "jest-expo": "~51.0.3",
     "react-test-renderer": "18.2.0",
     "typescript": "~5.3.3"
   },
-  "private": true
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/dhuntleypro"
+  }
 }

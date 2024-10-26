@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-nati
 import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
 import { Link, Stack } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
-import {MyButton} from "@dhuntleypro/afm-library"
+import {MyButton} from "@dhuntleypro/afm-expo-library"
 import { ViewItem } from '../lib-views/view-controller';
 // import { ViewItem } from '../views/view-controller';
 

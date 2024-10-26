@@ -1,15 +1,24 @@
 {
   "expo": {
-    "name": "jays-sea-moss",
+    "name": "Jays SM",
     "slug": "jays-sea-moss",
-    "scheme": "jays-sea-moss",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
+    "scheme": "jaysseamoss",
     "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.dhuntleypro.jaysseamoss"
+      "bundleIdentifier": "com.dhuntleyinc.jaysseamoss",
+      "infoPlist": {
+        "LSMinimumSystemVersion": "12.0",
+        "CFBundleDisplayName": "Jays SM"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -30,8 +39,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "1374902a-5950-44ad-a1b5-404fae770a37"
+        "projectId": "eeb013ad-cada-4b60-9c12-7f3f17b44e41"
       }
-    }
+    },
+    "owner": "dhuntleypro"
   }
 }

@@ -5,7 +5,7 @@ import { Link, Stack } from 'expo-router';
 import { Drawer } from 'expo-router/drawer';
 // import { ViewItem } from '../views/view-controller';
 // import ClientOrderCard from '@/components/library/client-order/ClientOrderCard';
-import { SAMPLE_ORDER, SAMPLE_ORDER_ITEMS, OrderCrudCard , ClientOrderCard} from "@dhuntleypro/afm-library"
+import { SAMPLE_ORDER, SAMPLE_ORDER_ITEMS, OrderCrudCard , ClientOrderCard} from "@dhuntleypro/afm-expo-library"
 import { ViewItem } from '../lib-views/view-controller';
 
 const ButtonController = () => {

@@ -1,14 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Stack } from "expo-router";
+import { useTheme } from "@dhuntleypro/afm-expo-library";
+
 
 const ProductsLayout = () => {
+  const { colors } = useTheme()
   return (
     <Stack>
       <Stack.Screen
         name="settings"
         options={{
           title: "Settings",
+          headerStyle: {
+            backgroundColor:  colors.pageBackground, 
+          },
+          headerTintColor: colors.pageText
           // headerShown: false
         }}
       />
@@ -17,6 +24,10 @@ const ProductsLayout = () => {
         name="faq"
         options={{
           title: "FAQ",
+          headerStyle: {
+            backgroundColor:  colors.pageBackground, 
+          },
+          headerTintColor: colors.pageText
         }}
       />
 
@@ -25,6 +36,10 @@ const ProductsLayout = () => {
         options={{
           // headerShown: false
           title: "Profile",
+          headerStyle: {
+            backgroundColor:  colors.pageBackground, 
+          },
+          headerTintColor: colors.pageText
         }}
       />
 
@@ -32,6 +47,10 @@ const ProductsLayout = () => {
         name="favorites"
         options={{
           title: "Favorites",
+          headerStyle: {
+            backgroundColor:  colors.pageBackground, 
+          },
+          headerTintColor: colors.pageText
           // headerShown: false
         }}
       />
@@ -40,6 +59,10 @@ const ProductsLayout = () => {
         name="appearance"
         options={{
           title: "Appearance",
+          headerStyle: {
+            backgroundColor:  colors.pageBackground, 
+          },
+          headerTintColor: colors.pageText
           // headerShown: false
         }}
       />

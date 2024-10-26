@@ -1,7 +1,9 @@
 import React from 'react'
 import { Stack } from 'expo-router'
+import { useTheme } from '@dhuntleypro/afm-expo-library'
 
 const ProductsLayout = () => {
+  const {colors } = useTheme()
   return (
    <Stack>
 
@@ -10,6 +12,10 @@ const ProductsLayout = () => {
     options={{
      
       headerShown: false,
+      headerStyle: {
+        backgroundColor:  colors.pageBackground, 
+      },
+      headerTintColor: colors.pageText
     }}
     />
     <Stack.Screen 

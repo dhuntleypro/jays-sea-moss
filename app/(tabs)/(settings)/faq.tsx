@@ -1,9 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Pages from '@/core/routes';
+import { Pages } from '@dhuntleypro/afm-expo-library';
+import { StyleSheet } from 'react-native'
 
 const faq = () => {
-  const FAQPage = Pages.faq; // Dynamically use component from the registry
+  const FAQPage = Pages.faq; 
 
   return (
     <FAQPage />

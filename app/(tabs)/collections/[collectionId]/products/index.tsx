@@ -1,8 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 // import ProductList from '@/components/other/products/ProductList'
-import {CollectionProductSearchScreen} from '@dhuntleypro/afm-library'
-import Pages from '@/core/routes'
+import {Pages} from '@dhuntleypro/afm-expo-library'
 const Page = () => {
   const CollectionProductPage = Pages.collectionProducts
   return (
